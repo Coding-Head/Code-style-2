@@ -2,10 +2,14 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package com.mycompany.code_style.dto;
+package com.mycompany.code_style.model;
 
-public class Client {
-
+/**
+ *
+ * @author gusta
+ */
+public class Cliente {
+    
     private String nome;
     private String cpf;
     private String endereco;
@@ -13,11 +17,11 @@ public class Client {
     private String email;
     private String senha;
 
-    public Client() {
+    public Cliente() {
         
     }
     
-    public Client(String nome, String cpf, String endereco, String sexo, String email, String senha) {
+    public Cliente(String nome, String cpf, String endereco, String sexo, String email, String senha) {
         this.nome = nome;
         this.cpf = cpf;
         this.endereco = endereco;
@@ -101,7 +105,7 @@ public class Client {
 
     /**
      * @param senha the password to set
-     */
+    */
     public void setSenha(String senha) {
         this.senha = senha;
     }

@@ -2,19 +2,22 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package com.mycompany.code_style.dto;
+package com.mycompany.code_style.model;
 
-public class Product {
-    
+/**
+ *
+ * @author gusta
+ */
+public class Produto {
     private String name;
     private Double price;
     private int quantity;
     
-    public Product() {
+    public Produto() {
         
     }
     
-    public Product(String name, Double price, int quantity) {
+    public Produto(String name, Double price, int quantity) {
         this.name = name;
         this.price = price;
         this.quantity = quantity;
@@ -61,6 +64,5 @@ public class Product {
     public void setQuantity(int quantity) {
         this.quantity = quantity;
     }
-    
-    
+
 }

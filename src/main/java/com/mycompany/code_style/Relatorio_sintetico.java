@@ -31,11 +31,9 @@ public class Relatorio_sintetico extends javax.swing.JFrame {
         TableSintetico = new javax.swing.JTable();
         label1 = new java.awt.Label();
         jTextField2 = new javax.swing.JTextField();
-        jMenuBar1 = new javax.swing.JMenuBar();
-        jMenu1 = new javax.swing.JMenu();
-        jMenu2 = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Relatório Sintetico");
 
         jTextField1.setText("Pesquisar...");
         jTextField1.addActionListener(new java.awt.event.ActionListener() {
@@ -63,14 +61,6 @@ public class Relatorio_sintetico extends javax.swing.JFrame {
 
         jTextField2.setText("R$");
         jTextField2.setName("SADASD"); // NOI18N
-
-        jMenu1.setText("File");
-        jMenuBar1.add(jMenu1);
-
-        jMenu2.setText("Edit");
-        jMenuBar1.add(jMenu2);
-
-        setJMenuBar(jMenuBar1);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -100,8 +90,6 @@ public class Relatorio_sintetico extends javax.swing.JFrame {
                 .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(19, 19, 19))
         );
-
-        label1.getAccessibleContext().setAccessibleName("Total");
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -147,9 +135,6 @@ public class Relatorio_sintetico extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTable TableSintetico;
-    private javax.swing.JMenu jMenu1;
-    private javax.swing.JMenu jMenu2;
-    private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField2;

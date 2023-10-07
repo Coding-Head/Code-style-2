@@ -4,7 +4,7 @@
  */
 package com.mycompany.code_style;
 
-import com.mycompany.code_style.dto.Login;
+import com.mycompany.code_style.dto.LoginDto;
 import java.util.ArrayList;
 
 /**
@@ -14,11 +14,11 @@ import java.util.ArrayList;
 public class TelaLogin extends javax.swing.JFrame {
 
     
-    ArrayList<Login> listaTest = new ArrayList<Login>();
+    ArrayList<LoginDto> listaTest = new ArrayList<LoginDto>();
     
     public TelaLogin() {
         initComponents();
-        listaTest.add(new Login("admin", "admin"));
+        listaTest.add(new LoginDto("admin", "admin"));
     }
 
     @SuppressWarnings("unchecked")
