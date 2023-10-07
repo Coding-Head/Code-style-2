@@ -6,11 +6,13 @@ com\mycompany\code_style\TelaDeCadastro$1.class
 com\mycompany\code_style\dto\Login.class
 com\mycompany\code_style\TelaDeCadastro$4.class
 com\mycompany\code_style\TelaHome.class
+com\mycompany\code_style\TelaRelatorio_Sintetico.class
 com\mycompany\code_style\TelaHome$3.class
 com\mycompany\code_style\TelaDeCadastro$7.class
 com\mycompany\code_style\dao\ClientDatabaseAccesss.class
 com\mycompany\code_style\TelaDeCadastro$8.class
 com\mycompany\code_style\TelaHome$4.class
+com\mycompany\code_style\TelaRelatorio_Sintetico$1.class
 com\mycompany\code_style\Code_Style.class
 com\mycompany\code_style\dto\Client.class
 com\mycompany\code_style\TelaDeCadastro$3.class
