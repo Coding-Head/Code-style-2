@@ -4,14 +4,14 @@
  */
 package com.mycompany.code_style;
 
-import com.mycompany.code_style.dto.Client;
+import com.mycompany.code_style.dto.ClienteDto;
 import javax.swing.JOptionPane;
 
 /**
  *
  * @author carlo
  */
-public class TelaDeCadastro extends javax.swing.JFrame {
+public class Cadastro extends javax.swing.JFrame {
     
     public void save() {
         JOptionPane.showMessageDialog(null, "working");
@@ -20,7 +20,7 @@ public class TelaDeCadastro extends javax.swing.JFrame {
     /**
      * Creates new form TelaDeCadastro
      */
-    public TelaDeCadastro() {
+    public Cadastro() {
         initComponents();
     }
     
@@ -242,7 +242,7 @@ public class TelaDeCadastro extends javax.swing.JFrame {
             return;
         }
         
-        Client cliente = new Client(nome, cpf, endereco, sexo, email, senha);
+        ClienteDto cliente = new ClienteDto(nome, cpf, endereco, sexo, email, senha);
 
         save();
     }//GEN-LAST:event_btnConfirmarActionPerformed
@@ -276,20 +276,21 @@ public class TelaDeCadastro extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(TelaDeCadastro.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Cadastro.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(TelaDeCadastro.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Cadastro.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(TelaDeCadastro.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Cadastro.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(TelaDeCadastro.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Cadastro.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new TelaDeCadastro().setVisible(true);
+                new Cadastro().setVisible(true);
             }
         });
     }

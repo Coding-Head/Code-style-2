@@ -4,7 +4,7 @@
  */
 package com.mycompany.code_style.dao;
 
-import com.mycompany.code_style.dto.Client;
+import com.mycompany.code_style.dto.ClienteDto;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -15,7 +15,7 @@ public class ClientDatabaseAccesss {
 
     private Connection conn;
     
-    public ResultSet clientAuthentication(Client data) {
+    public ResultSet clientAuthentication(ClienteDto data) {
         conn = new DatabaseConector().dbConn();
         
         try {
