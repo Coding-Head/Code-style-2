@@ -32,7 +32,7 @@ public class TelaDeCompra extends javax.swing.JFrame {
         menuEdit.setBackground(new java.awt.Color(255, 255, 255)); // branco    
         menuFile.setBackground(new java.awt.Color(255, 255, 255)); // branco
         spnRolar.setBackground(new java.awt.Color(255, 255, 255)); // branco
-        tblDeCompra.setBackground(new java.awt.Color(255, 255, 255)); // branco
+        tblDeCompra.setBackground(new java.awt.Color(173, 216, 230)); // azul
         btnConfirmar.setBackground(new java.awt.Color(143, 192, 220)); // Azul medio-claro
         
         //Crie uma borda com uma cor preta
