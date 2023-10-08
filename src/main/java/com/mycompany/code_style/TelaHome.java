@@ -38,7 +38,7 @@ public class TelaHome extends javax.swing.JFrame {
         setFont(new java.awt.Font("Calibri", 1, 10)); // NOI18N
         setForeground(java.awt.Color.white);
 
-        jPanel1.setBackground(new java.awt.Color(29, 40, 86));
+        jPanel1.setBackground(new java.awt.Color(173, 216, 230));
 
         jButton3.setBackground(new java.awt.Color(29, 40, 66));
         jButton3.setFont(new java.awt.Font("Segoe UI", 1, 10)); // NOI18N

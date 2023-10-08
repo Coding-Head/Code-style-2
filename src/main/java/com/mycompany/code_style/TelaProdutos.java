@@ -4,6 +4,10 @@
  */
 package com.mycompany.code_style;
 
+import java.awt.Color;
+import javax.swing.BorderFactory;
+import javax.swing.border.Border;
+
 /**
  *
  * @author gusta
@@ -15,6 +19,32 @@ public class TelaProdutos extends javax.swing.JFrame {
      */
     public TelaProdutos() {
         initComponents();
+        CadastroColors();
+    }
+
+    private void CadastroColors() {
+
+        // Defina a cor de fundo do JFrame
+        this.getContentPane().setBackground(new java.awt.Color(173, 216, 230)); // azul
+        // Defina a cor de fundo de alguns componentes
+        fieldPesquisar.setBackground(new java.awt.Color(255, 255, 255)); // branco
+        jMenuBar1.setBackground(new java.awt.Color(255, 255, 255)); // branco
+        jScrollPane1.setBackground(new java.awt.Color(255, 255, 255)); // branco
+        ProdutosLista.setBackground(new java.awt.Color(255, 255, 255)); // branco    
+        menuEdit.setBackground(new java.awt.Color(255, 255, 255)); // branco
+        menuFile.setBackground(new java.awt.Color(255, 255, 255)); // branco
+
+        //Crie uma borda com uma cor preta
+        Border border = BorderFactory.createLineBorder(new java.awt.Color(70, 70, 70));
+        // Aplique a borda aos componentes desejados
+
+        menuEdit.setBorder(border);
+        fieldPesquisar.setBorder(border);
+        jScrollPane1.setBorder(border);
+        ProdutosLista.setBorder(border);
+        menuFile.setBorder(border);
+        jMenuBar1.setBorder(border);
+
     }
 
     /**
@@ -28,13 +58,14 @@ public class TelaProdutos extends javax.swing.JFrame {
 
         jScrollPane1 = new javax.swing.JScrollPane();
         ProdutosLista = new javax.swing.JTable();
-        jTextField1 = new javax.swing.JTextField();
+        fieldPesquisar = new javax.swing.JTextField();
         jMenuBar1 = new javax.swing.JMenuBar();
-        jMenu1 = new javax.swing.JMenu();
-        jMenu2 = new javax.swing.JMenu();
+        menuFile = new javax.swing.JMenu();
+        menuEdit = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Produtos");
+        setBackground(new java.awt.Color(153, 255, 255));
 
         ProdutosLista.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -49,13 +80,13 @@ public class TelaProdutos extends javax.swing.JFrame {
         ));
         jScrollPane1.setViewportView(ProdutosLista);
 
-        jTextField1.setText("Pesquisar");
+        fieldPesquisar.setText("Pesquisar");
 
-        jMenu1.setText("File");
-        jMenuBar1.add(jMenu1);
+        menuFile.setText("File");
+        jMenuBar1.add(menuFile);
 
-        jMenu2.setText("Edit");
-        jMenuBar1.add(jMenu2);
+        menuEdit.setText("Edit");
+        jMenuBar1.add(menuEdit);
 
         setJMenuBar(jMenuBar1);
 
@@ -66,7 +97,7 @@ public class TelaProdutos extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jTextField1)
+                    .addComponent(fieldPesquisar)
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 425, Short.MAX_VALUE))
                 .addContainerGap())
         );
@@ -74,7 +105,7 @@ public class TelaProdutos extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(10, Short.MAX_VALUE)
-                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(fieldPesquisar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 356, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(24, 24, 24))
@@ -97,16 +128,24 @@ public class TelaProdutos extends javax.swing.JFrame {
                 if ("Nimbus".equals(info.getName())) {
                     javax.swing.UIManager.setLookAndFeel(info.getClassName());
                     break;
+
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(TelaProdutos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TelaProdutos.class
+                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
+
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(TelaProdutos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TelaProdutos.class
+                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
+
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(TelaProdutos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TelaProdutos.class
+                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
+
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(TelaProdutos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TelaProdutos.class
+                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
         //</editor-fold>
@@ -121,10 +160,10 @@ public class TelaProdutos extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTable ProdutosLista;
-    private javax.swing.JMenu jMenu1;
-    private javax.swing.JMenu jMenu2;
+    private javax.swing.JTextField fieldPesquisar;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextField jTextField1;
+    private javax.swing.JMenu menuEdit;
+    private javax.swing.JMenu menuFile;
     // End of variables declaration//GEN-END:variables
 }

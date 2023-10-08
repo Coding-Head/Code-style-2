@@ -4,12 +4,12 @@
   <NonVisualComponents>
     <Menu class="javax.swing.JMenuBar" name="jMenuBar1">
       <SubComponents>
-        <Menu class="javax.swing.JMenu" name="jMenu1">
+        <Menu class="javax.swing.JMenu" name="menuFile">
           <Properties>
             <Property name="text" type="java.lang.String" value="File"/>
           </Properties>
         </Menu>
-        <Menu class="javax.swing.JMenu" name="jMenu2">
+        <Menu class="javax.swing.JMenu" name="menuEdit">
           <Properties>
             <Property name="text" type="java.lang.String" value="Edit"/>
           </Properties>
@@ -46,19 +46,19 @@
               <Group type="103" groupAlignment="1" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="label2" min="-2" max="-2" attributes="0"/>
-                          <Component id="jTextField1" min="-2" pref="268" max="-2" attributes="0"/>
+                          <Component id="lblNomeProduto" min="-2" max="-2" attributes="0"/>
+                          <Component id="fielPesquisar" min="-2" pref="268" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="jSpinner1" max="32767" attributes="0"/>
-                          <Component id="label1" pref="112" max="32767" attributes="0"/>
+                          <Component id="spnRolar" max="32767" attributes="0"/>
+                          <Component id="lblQuantidade" pref="112" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
-                      <Component id="jButton1" min="-2" pref="141" max="-2" attributes="0"/>
+                      <Component id="btnCancelar" min="-2" pref="141" max="-2" attributes="0"/>
                       <EmptySpace max="32767" attributes="0"/>
-                      <Component id="jButton3" min="-2" pref="141" max="-2" attributes="0"/>
+                      <Component id="btnConfirmar" min="-2" pref="141" max="-2" attributes="0"/>
                   </Group>
                   <Component id="jScrollPane1" alignment="1" pref="0" max="32767" attributes="0"/>
               </Group>
@@ -71,20 +71,20 @@
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace min="-2" pref="13" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="label1" min="-2" max="-2" attributes="0"/>
-                  <Component id="label2" min="-2" max="-2" attributes="0"/>
+                  <Component id="lblQuantidade" min="-2" max="-2" attributes="0"/>
+                  <Component id="lblNomeProduto" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="jSpinner1" min="-2" max="-2" attributes="0"/>
-                  <Component id="jTextField1" alignment="0" min="-2" max="-2" attributes="0"/>
+                  <Component id="spnRolar" min="-2" max="-2" attributes="0"/>
+                  <Component id="fielPesquisar" alignment="0" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Component id="jScrollPane1" min="-2" pref="275" max="-2" attributes="0"/>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="jButton1" alignment="3" min="-2" pref="35" max="-2" attributes="0"/>
-                  <Component id="jButton3" alignment="3" min="-2" pref="35" max="-2" attributes="0"/>
+                  <Component id="btnCancelar" alignment="3" min="-2" pref="35" max="-2" attributes="0"/>
+                  <Component id="btnConfirmar" alignment="3" min="-2" pref="35" max="-2" attributes="0"/>
               </Group>
               <EmptySpace pref="17" max="32767" attributes="0"/>
           </Group>
@@ -92,7 +92,7 @@
     </DimensionLayout>
   </Layout>
   <SubComponents>
-    <Component class="javax.swing.JTextField" name="jTextField1">
+    <Component class="javax.swing.JTextField" name="fielPesquisar">
       <Properties>
         <Property name="text" type="java.lang.String" value="Pesquisar"/>
       </Properties>
@@ -104,7 +104,7 @@
 
       <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
       <SubComponents>
-        <Component class="javax.swing.JTable" name="jTable1">
+        <Component class="javax.swing.JTable" name="tblDeCompra">
           <Properties>
             <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
               <Table columnCount="4" rowCount="4">
@@ -120,19 +120,19 @@
         </Component>
       </SubComponents>
     </Container>
-    <Component class="javax.swing.JSpinner" name="jSpinner1">
+    <Component class="javax.swing.JSpinner" name="spnRolar">
     </Component>
-    <Component class="java.awt.Label" name="label1">
+    <Component class="java.awt.Label" name="lblQuantidade">
       <Properties>
         <Property name="text" type="java.lang.String" value="QUANTIDADE"/>
       </Properties>
     </Component>
-    <Component class="java.awt.Label" name="label2">
+    <Component class="java.awt.Label" name="lblNomeProduto">
       <Properties>
         <Property name="text" type="java.lang.String" value="NOME DO PRODUTO"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JButton" name="jButton1">
+    <Component class="javax.swing.JButton" name="btnCancelar">
       <Properties>
         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="41" green="41" red="a5" type="rgb"/>
@@ -140,7 +140,7 @@
         <Property name="text" type="java.lang.String" value="Cancelar"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JButton" name="jButton3">
+    <Component class="javax.swing.JButton" name="btnConfirmar">
       <Properties>
         <Property name="text" type="java.lang.String" value="Confirmar"/>
       </Properties>
