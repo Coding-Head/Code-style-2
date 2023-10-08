@@ -4,6 +4,9 @@
  */
 package com.mycompany.code_style;
 
+import java.awt.Color;
+import javax.swing.BorderFactory;
+import javax.swing.border.Border;
 /**
  *
  * @author gusta
@@ -15,6 +18,35 @@ public class TelaDeCompra extends javax.swing.JFrame {
      */
     public TelaDeCompra() {
         initComponents();
+     CadastroColors();
+    }
+
+    private void CadastroColors() {
+
+        // Defina a cor de fundo do JFrame
+        this.getContentPane().setBackground(new java.awt.Color(173, 216, 230)); // azul
+        // Defina a cor de fundo de alguns componentes
+        jScrollPane1.setBackground(new java.awt.Color(255, 255, 255)); // branco
+        jMenuBar1.setBackground(new java.awt.Color(255, 255, 255)); // branco
+        fielPesquisar.setBackground(new java.awt.Color(255, 255, 255)); // branco
+        menuEdit.setBackground(new java.awt.Color(255, 255, 255)); // branco    
+        menuFile.setBackground(new java.awt.Color(255, 255, 255)); // branco
+        spnRolar.setBackground(new java.awt.Color(255, 255, 255)); // branco
+        tblDeCompra.setBackground(new java.awt.Color(255, 255, 255)); // branco
+        btnConfirmar.setBackground(new java.awt.Color(143, 192, 220)); // Azul medio-claro
+        
+        //Crie uma borda com uma cor preta
+        Border border = BorderFactory.createLineBorder(new java.awt.Color(70, 70, 70));
+        // Aplique a borda aos componentes desejados
+       
+        jScrollPane1.setBorder(border);
+        jMenuBar1.setBorder(border);
+        fielPesquisar.setBorder(border);
+        btnCancelar.setBorder(border);
+        btnConfirmar.setBorder(border);
+        menuEdit.setBorder(border);
+        spnRolar.setBorder(border);
+        tblDeCompra.setBorder(border);
     }
 
     /**
@@ -26,24 +58,24 @@ public class TelaDeCompra extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jTextField1 = new javax.swing.JTextField();
+        fielPesquisar = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
-        jSpinner1 = new javax.swing.JSpinner();
-        label1 = new java.awt.Label();
-        label2 = new java.awt.Label();
-        jButton1 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
+        tblDeCompra = new javax.swing.JTable();
+        spnRolar = new javax.swing.JSpinner();
+        lblQuantidade = new java.awt.Label();
+        lblNomeProduto = new java.awt.Label();
+        btnCancelar = new javax.swing.JButton();
+        btnConfirmar = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
-        jMenu1 = new javax.swing.JMenu();
-        jMenu2 = new javax.swing.JMenu();
+        menuFile = new javax.swing.JMenu();
+        menuEdit = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Compra");
 
-        jTextField1.setText("Pesquisar");
+        fielPesquisar.setText("Pesquisar");
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        tblDeCompra.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -54,24 +86,24 @@ public class TelaDeCompra extends javax.swing.JFrame {
                 "NOME", "QUANTIDADE", "PREÇO", "CATEGORIA"
             }
         ));
-        jTable1.setShowGrid(true);
-        jTable1.setSurrendersFocusOnKeystroke(true);
-        jScrollPane1.setViewportView(jTable1);
+        tblDeCompra.setShowGrid(true);
+        tblDeCompra.setSurrendersFocusOnKeystroke(true);
+        jScrollPane1.setViewportView(tblDeCompra);
 
-        label1.setText("QUANTIDADE");
+        lblQuantidade.setText("QUANTIDADE");
 
-        label2.setText("NOME DO PRODUTO");
+        lblNomeProduto.setText("NOME DO PRODUTO");
 
-        jButton1.setBackground(new java.awt.Color(165, 65, 65));
-        jButton1.setText("Cancelar");
+        btnCancelar.setBackground(new java.awt.Color(165, 65, 65));
+        btnCancelar.setText("Cancelar");
 
-        jButton3.setText("Confirmar");
+        btnConfirmar.setText("Confirmar");
 
-        jMenu1.setText("File");
-        jMenuBar1.add(jMenu1);
+        menuFile.setText("File");
+        jMenuBar1.add(menuFile);
 
-        jMenu2.setText("Edit");
-        jMenuBar1.add(jMenu2);
+        menuEdit.setText("Edit");
+        jMenuBar1.add(menuEdit);
 
         setJMenuBar(jMenuBar1);
 
@@ -84,16 +116,16 @@ public class TelaDeCompra extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(label2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 268, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(lblNomeProduto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(fielPesquisar, javax.swing.GroupLayout.PREFERRED_SIZE, 268, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(28, 28, 28)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jSpinner1)
-                            .addComponent(label1, javax.swing.GroupLayout.DEFAULT_SIZE, 112, Short.MAX_VALUE)))
+                            .addComponent(spnRolar)
+                            .addComponent(lblQuantidade, javax.swing.GroupLayout.DEFAULT_SIZE, 112, Short.MAX_VALUE)))
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btnCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(btnConfirmar, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
                 .addContainerGap())
         );
@@ -102,18 +134,18 @@ public class TelaDeCompra extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(13, 13, 13)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(label1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(label2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(lblQuantidade, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblNomeProduto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jSpinner1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(spnRolar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(fielPesquisar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 275, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(btnCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnConfirmar, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(17, Short.MAX_VALUE))
         );
 
@@ -156,16 +188,16 @@ public class TelaDeCompra extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JMenu jMenu1;
-    private javax.swing.JMenu jMenu2;
+    private javax.swing.JButton btnCancelar;
+    private javax.swing.JButton btnConfirmar;
+    private javax.swing.JTextField fielPesquisar;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JSpinner jSpinner1;
-    private javax.swing.JTable jTable1;
-    private javax.swing.JTextField jTextField1;
-    private java.awt.Label label1;
-    private java.awt.Label label2;
+    private java.awt.Label lblNomeProduto;
+    private java.awt.Label lblQuantidade;
+    private javax.swing.JMenu menuEdit;
+    private javax.swing.JMenu menuFile;
+    private javax.swing.JSpinner spnRolar;
+    private javax.swing.JTable tblDeCompra;
     // End of variables declaration//GEN-END:variables
 }
