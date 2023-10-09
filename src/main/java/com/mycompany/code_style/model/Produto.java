@@ -64,5 +64,10 @@ public class Produto {
     public void setQuantity(int quantity) {
         this.quantity = quantity;
     }
+    
+    @Override
+    public String toString() {
+       return "Cadastro de produto{" + "Nome=" + name + ", Preço=" + price + "Quantidade="+ quantity + '}';
+}
 
 }
