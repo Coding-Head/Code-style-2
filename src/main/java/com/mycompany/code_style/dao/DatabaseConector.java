@@ -6,21 +6,84 @@ package com.mycompany.code_style.dao;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import javax.swing.JOptionPane;
 
 
 public class DatabaseConector {
 
-    public Connection dbConn() {
-        Connection conn = null;
-        
-        try {
-            String url = "jdbc:mysql://localhost:3306/bancoteste?user=root&password=";
-            conn = DriverManager.getConnection(url);
-        } catch (SQLException e) {
+    private Connection conn;
+
+    public DatabaseConector() {
+        conn = dbConn();
+        criarTabelas();
+    }
+    
+    public void criarTabelas() {
+        try{
+            String sql = "CREATE TABLE IF NOT EXISTS Produto ("
+                + "id INT AUTO_INCREMENT PRIMARY KEY,"
+                + "nome VARCHAR(255),"
+                + "preco DOUBLE)";
+            
+            PreparedStatement statement = conn.prepareStatement(sql);
+            statement.executeUpdate();
+            statement.close();
+            
+            sql = "CREATE TABLE IF NOT EXISTS Cliente ("
+                + "id INT AUTO_INCREMENT PRIMARY KEY,"
+                + "nome VARCHAR(255),"
+                + "cpf VARCHAR(11),"
+                + "endereco VARCHAR(50),"
+                + "sexo VARCHAR(25),"
+                + "email VARCHAR(90),"
+                + "senha VARCHAR(30));";
+            
+            statement = conn.prepareStatement(sql);
+            statement.executeUpdate();
+            statement.close();
+            
+            sql = "CREATE TABLE IF NOT EXISTS Categoria ("
+                + "id INT AUTO_INCREMENT PRIMARY KEY,"
+                + "nome VARCHAR(60),"
+                + "descricao VARCHAR(120));";
+            
+            statement = conn.prepareStatement(sql);
+            statement.executeUpdate();
+            statement.close();
+            
+            sql = "CREATE TABLE IF NOT EXISTS Login("
+                + "id INT AUTO_INCREMENT PRIMARY KEY,"
+                + "email VARCHAR(80),"
+                + "senha VARCHAR(30));";
+            
+            statement = conn.prepareStatement(sql);
+            statement.executeUpdate();
+            statement.close();
+            
+        }catch(SQLException e) {
             JOptionPane.showMessageDialog(null, "Database connection failed" + e.getMessage());
         }
-        return conn;
+    }
+    
+    public Connection dbConn() {
+        try {
+            
+            String url = "jdbc:mysql://localhost:3306/?user=root&password=252525";
+            Connection connection = DriverManager.getConnection(url);
+            
+            String dbName = "code_style";
+            String createDbSql = "CREATE DATABASE IF NOT EXISTS " + dbName;
+            
+            connection.prepareStatement(createDbSql).executeUpdate();
+
+            url = "jdbc:mysql://localhost:3306/" + dbName + "?user=root&password=252525";
+            connection = DriverManager.getConnection(url);
+            return connection;
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(null, "Erro na conexão com o banco de dados: " + e.getMessage());
+            throw new RuntimeException("Erro na conexão com o banco de dados.", e);
+        }
     }
 }

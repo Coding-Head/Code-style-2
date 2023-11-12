@@ -9,60 +9,60 @@ package com.mycompany.code_style.model;
  * @author gusta
  */
 public class Produto {
-    private String name;
-    private Double price;
-    private int quantity;
+    private String nome;
+    private Double preco;
+    private int quantidade;
     
     public Produto() {
         
     }
     
-    public Produto(String name, Double price, int quantity) {
-        this.name = name;
-        this.price = price;
-        this.quantity = quantity;
+    public Produto(String nome, Double preco, int quantidade) {
+        this.nome = nome;
+        this.preco = preco;
+        this.quantidade = quantidade;
     }
 
     /**
      * @return the name
      */
     public String getName() {
-        return name;
+        return nome;
     }
 
     /**
      * @param name the name to set
      */
-    public void setName(String name) {
-        this.name = name;
+    public void setName(String nome) {
+        this.nome = nome;
     }
 
     /**
      * @return the price
      */
     public Double getPrice() {
-        return price;
+        return preco;
     }
 
     /**
      * @param price the price to set
      */
-    public void setPrice(Double price) {
-        this.price = price;
+    public void setPrice(Double preco) {
+        this.preco = preco;
     }
 
     /**
      * @return the quantity
      */
     public int getQuantity() {
-        return quantity;
+        return quantidade;
     }
 
     /**
      * @param quantity the quantity to set
      */
-    public void setQuantity(int quantity) {
-        this.quantity = quantity;
+    public void setQuantity(int quantidade) {
+        this.quantidade = quantidade;
     }
 
 }
