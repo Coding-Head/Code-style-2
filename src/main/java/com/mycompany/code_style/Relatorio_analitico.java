@@ -4,6 +4,9 @@
  */
 package com.mycompany.code_style;
 
+import java.awt.Color;
+import javax.swing.BorderFactory;
+import javax.swing.border.Border;
 /**
  *
  * @author gusta
@@ -15,6 +18,27 @@ public class Relatorio_analitico extends javax.swing.JFrame {
      */
     public Relatorio_analitico() {
         initComponents();
+        CadastroColors();
+    }
+
+    private void CadastroColors() {
+
+        // Defina a cor de fundo do JFrame
+        this.getContentPane().setBackground(new java.awt.Color(173, 216, 230)); // azul claro
+        // Defina a cor de fundo de alguns componentes
+        jScrollPane1.setBackground(new java.awt.Color(255, 255, 255)); // branco
+        lblTotal.setBackground(new java.awt.Color(255, 255, 255)); // branco
+        tblAnalitico.setBackground(new java.awt.Color(173, 216, 230)); // azul claro
+        txtPesquisar.setBackground(new java.awt.Color(255, 255, 255)); // branco    
+        txtValor.setBackground(new java.awt.Color(255, 255, 255)); // branco
+        
+        //Crie uma borda com uma cor preta
+        Border border = BorderFactory.createLineBorder(new java.awt.Color(70, 70, 70));
+        // Aplique a borda aos componentes desejados
+        jScrollPane1.setBorder(border);
+        tblAnalitico.setBorder(border);
+        txtPesquisar.setBorder(border);
+        txtValor.setBorder(border);
     }
 
     /**
@@ -27,16 +51,16 @@ public class Relatorio_analitico extends javax.swing.JFrame {
     private void initComponents() {
 
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
-        jTextField1 = new javax.swing.JTextField();
-        jTextField2 = new javax.swing.JTextField();
-        label1 = new java.awt.Label();
+        tblAnalitico = new javax.swing.JTable();
+        txtPesquisar = new javax.swing.JTextField();
+        txtValor = new javax.swing.JTextField();
+        lblTotal = new java.awt.Label();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Relatório Analítico ");
         setPreferredSize(new java.awt.Dimension(400, 546));
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        tblAnalitico.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null},
                 {null, null, null, null, null},
@@ -47,16 +71,16 @@ public class Relatorio_analitico extends javax.swing.JFrame {
                 "Cliente", "Produto", "Quantidade", "Data", "Valor"
             }
         ));
-        jTable1.setShowGrid(true);
-        jScrollPane1.setViewportView(jTable1);
+        tblAnalitico.setShowGrid(true);
+        jScrollPane1.setViewportView(tblAnalitico);
 
-        jTextField1.setText("Pesquisar...");
+        txtPesquisar.setText("Pesquisar...");
 
-        jTextField2.setText("R$");
-        jTextField2.setName("SADASD"); // NOI18N
+        txtValor.setText("R$");
+        txtValor.setName("SADASD"); // NOI18N
 
-        label1.setFont(new java.awt.Font("Arial Black", 1, 18)); // NOI18N
-        label1.setText("Total");
+        lblTotal.setFont(new java.awt.Font("Arial Black", 1, 18)); // NOI18N
+        lblTotal.setText("Total");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -66,10 +90,10 @@ public class Relatorio_analitico extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 389, Short.MAX_VALUE)
-                    .addComponent(jTextField1)
-                    .addComponent(label1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(txtPesquisar)
+                    .addComponent(lblTotal, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 191, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(txtValor, javax.swing.GroupLayout.PREFERRED_SIZE, 191, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
@@ -77,13 +101,13 @@ public class Relatorio_analitico extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(txtPesquisar, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 367, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(label1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(lblTotal, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(txtValor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(21, 21, 21))
         );
 
@@ -127,9 +151,9 @@ public class Relatorio_analitico extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
-    private java.awt.Label label1;
+    private java.awt.Label lblTotal;
+    private javax.swing.JTable tblAnalitico;
+    private javax.swing.JTextField txtPesquisar;
+    private javax.swing.JTextField txtValor;
     // End of variables declaration//GEN-END:variables
 }

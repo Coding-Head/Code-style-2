@@ -4,6 +4,8 @@
  */
 package com.mycompany.code_style;
 
+import com.mycompany.code_style.dao.DatabaseConector;
+
 /**
  *
  * @author gusta
@@ -15,6 +17,8 @@ public class TelaHome extends javax.swing.JFrame {
      */
     public TelaHome() {
         initComponents();
+        
+        DatabaseConector dbConector = new DatabaseConector();
     }
 
     /**
