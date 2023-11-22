@@ -16,7 +16,7 @@ public class DatabaseConector {
     private Connection conn;
 
     public DatabaseConector() {
-        conn = dbConn();
+        this.conn = dbConn();
         criarTabelas();
     }
     
