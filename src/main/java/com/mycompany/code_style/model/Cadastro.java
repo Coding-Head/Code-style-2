@@ -6,30 +6,32 @@ package com.mycompany.code_style.model;
 
 /**
  *
- * @author gusta
+ * @author carlo
  */
-public class Cliente {
+public class Cadastro {
     
+    private int IdCadastro;
     private String nome;
     private String cpf;
-    private String idade;
+    private int idade;
     private String endereco;
     private String sexo;
     private String email;
     private String senha;
+    
 
-    public Cliente() {
+    public Cadastro(){
         
     }
     
-    public Cliente(String nome, String cpf, String endereco, String sexo, String email, String senha) {
+    public Cadastro(String nome, String cpf, int idade, String endereco, String sexo, String email, String senha){
         this.nome = nome;
         this.cpf = cpf;
+        this.idade = idade;
         this.endereco = endereco;
         this.sexo = sexo;
         this.email = email;
         this.senha = senha;
-        this.idade = idade;
     }
 
     public String getNome() {
@@ -40,44 +42,22 @@ public class Cliente {
         this.nome = nome;
     }
 
-    public String getIdade() {
-        return idade;
-    }
-
-    public void setIdade(String idade) {
-        this.idade = idade;
-    }
-    /**
-     * @return the name
-     */
-    public String getName() {
-        return nome;
-    }
-
-    /**
-     * @param name the name to set
-     */
-    public void setName(String name) {
-        this.nome = name;
-    }
-
-    /**
-     * @return the cpf
-     */
     public String getCpf() {
         return cpf;
     }
 
-    /**
-     * @param cpf the cpf to set
-     */
     public void setCpf(String cpf) {
         this.cpf = cpf;
     }
 
-    /**
-     * @return the address
-     */
+    public int getIdade() {
+        return idade;
+    }
+
+    public void setIdade(int idade) {
+        this.idade = idade;
+    }
+
     public String getEndereco() {
         return endereco;
     }
@@ -86,45 +66,28 @@ public class Cliente {
         this.endereco = endereco;
     }
 
-    /**
-     * @return the gender
-     */
     public String getSexo() {
         return sexo;
     }
 
-    /**
-     * @param sexo the gender to set
-     */
     public void setSexo(String sexo) {
         this.sexo = sexo;
     }
 
-    /**
-     * @return the email
-     */
     public String getEmail() {
         return email;
     }
 
-    /**
-     * @param email the email to set
-     */
     public void setEmail(String email) {
         this.email = email;
     }
 
-    /**
-     * @return the password
-     */
     public String getSenha() {
         return senha;
     }
 
-    /**
-     * @param senha the password to set
-    */
     public void setSenha(String senha) {
         this.senha = senha;
     }
+    
 }
