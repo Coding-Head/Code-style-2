@@ -4,7 +4,7 @@
  */
 package com.mycompany.code_style;
 
-import com.mycompany.code_style.dto.ClienteDto;
+import Dto.ClienteDto;
 import java.awt.Color;
 import javax.swing.BorderFactory;
 import javax.swing.border.Border;

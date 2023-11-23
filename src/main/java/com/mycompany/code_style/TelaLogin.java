@@ -4,7 +4,7 @@
  */
 package com.mycompany.code_style;
 
-import com.mycompany.code_style.dto.LoginDto;
+import Dto.LoginDto;
 import java.util.ArrayList;
 import javax.swing.BorderFactory;
 import javax.swing.border.Border;

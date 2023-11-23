@@ -4,7 +4,7 @@
  */
 package com.mycompany.code_style;
 
-import com.mycompany.code_style.dao.DatabaseConector;
+import Repository.DatabaseConector;
 
 /**
  *

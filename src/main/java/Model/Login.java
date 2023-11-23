@@ -1,23 +1,15 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
-package com.mycompany.code_style.dto;
+package Model;
 
-/**
- *
- * @author gusta
- */
-public class LoginDto {
+public class Login {
     public String email;
     public String senha;
 
 
-    public  LoginDto(){
+    public  Login(){
 
     }
 
-    public LoginDto(String email, String senha){
+    public Login(String email, String senha){
         this.email = email;
         this.senha = senha;
     }

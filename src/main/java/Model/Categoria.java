@@ -1,4 +1,4 @@
-package com.mycompany.code_style.model;
+package Model;
 
 public class Categoria {
     private String nome;

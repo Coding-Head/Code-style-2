@@ -4,7 +4,7 @@
  */
 package com.mycompany.code_style;
 
-import com.mycompany.code_style.model.Produto;
+import Model.Produto;
 import javax.swing.BorderFactory;
 import javax.swing.JOptionPane;
 import javax.swing.border.Border;
