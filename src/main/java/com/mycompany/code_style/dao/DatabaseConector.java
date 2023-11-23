@@ -108,7 +108,7 @@ public class DatabaseConector {
     public Connection dbConn() {
         try {
 
-            String url = "jdbc:mysql://localhost:3306/?user=root&password=";
+            String url = "jdbc:mysql://localhost:3306/?user=root&password=252525";
             Connection connection = DriverManager.getConnection(url);
 
             String dbName = "code_style";
@@ -116,7 +116,7 @@ public class DatabaseConector {
 
             connection.prepareStatement(createDbSql).executeUpdate();
 
-            url = "jdbc:mysql://localhost:3306/" + dbName + "?user=root&password=";
+            url = "jdbc:mysql://localhost:3306/" + dbName + "?user=root&password=252525";
             connection = DriverManager.getConnection(url);
             return connection;
         } catch (SQLException e) {
