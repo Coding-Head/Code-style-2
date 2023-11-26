@@ -324,7 +324,12 @@ public class Cadastro extends javax.swing.JFrame {
         }
 
         ClienteDto cliente = new ClienteDto(nome, cpf, endereco, sexo, email, senha);
-
+       
+        
+        TelaHome second = new TelaHome();
+        second.setVisible(true); 
+        this.setVisible(false);
+        
         save();
     }//GEN-LAST:event_btnConfirmarActionPerformed
 

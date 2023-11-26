@@ -181,6 +181,10 @@ public class TelaLogin extends javax.swing.JFrame {
         String senha = txtSenha.getText();
         IsValidEmail(email);
         IsValidSenha(senha);
+        
+        TelaHome second = new TelaHome();
+        second.setVisible(true); 
+        this.setVisible(false);
     }//GEN-LAST:event_btnConfirmarActionPerformed
 
     private void txtEmailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtEmailActionPerformed

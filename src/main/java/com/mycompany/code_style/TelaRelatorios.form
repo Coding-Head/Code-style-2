@@ -49,9 +49,9 @@
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace min="-2" pref="154" max="-2" attributes="0"/>
-                  <Component id="Produtos" min="-2" pref="183" max="-2" attributes="0"/>
+                  <Component id="btnAnalitico" min="-2" pref="183" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="93" max="-2" attributes="0"/>
-                  <Component id="jButton1" pref="187" max="32767" attributes="0"/>
+                  <Component id="btnSintetico" pref="187" max="32767" attributes="0"/>
                   <EmptySpace pref="147" max="32767" attributes="0"/>
               </Group>
           </Group>
@@ -61,8 +61,8 @@
               <Group type="102" alignment="1" attributes="0">
                   <EmptySpace pref="118" max="32767" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="Produtos" alignment="3" pref="160" max="32767" attributes="0"/>
-                      <Component id="jButton1" alignment="3" pref="160" max="32767" attributes="0"/>
+                      <Component id="btnAnalitico" alignment="3" pref="160" max="32767" attributes="0"/>
+                      <Component id="btnSintetico" alignment="3" pref="160" max="32767" attributes="0"/>
                   </Group>
                   <EmptySpace min="-2" pref="107" max="-2" attributes="0"/>
               </Group>
@@ -70,14 +70,14 @@
         </DimensionLayout>
       </Layout>
       <SubComponents>
-        <Component class="javax.swing.JButton" name="Produtos">
+        <Component class="javax.swing.JButton" name="btnAnalitico">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="42" green="28" red="1d" type="rgb"/>
             </Property>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.modules.form.editors2.FontEditor">
               <FontInfo relative="true">
-                <Font bold="true" component="Produtos" property="font" relativeSize="true" size="-2"/>
+                <Font bold="true" component="btnAnalitico" property="font" relativeSize="true" size="-2"/>
               </FontInfo>
             </Property>
             <Property name="text" type="java.lang.String" value="RELAT&#xd3;RIOS ANALITICOS"/>
@@ -87,10 +87,10 @@
             </Property>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ProdutosActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnAnaliticoActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JButton" name="jButton1">
+        <Component class="javax.swing.JButton" name="btnSintetico">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="42" green="28" red="1d" type="rgb"/>
@@ -105,7 +105,7 @@
             </Property>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton1ActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnSinteticoActionPerformed"/>
           </Events>
         </Component>
       </SubComponents>

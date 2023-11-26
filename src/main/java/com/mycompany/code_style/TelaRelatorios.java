@@ -17,8 +17,8 @@ public class TelaRelatorios extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        Produtos = new javax.swing.JButton();
-        jButton1 = new javax.swing.JButton();
+        btnAnalitico = new javax.swing.JButton();
+        btnSintetico = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Relatórios");
@@ -26,25 +26,25 @@ public class TelaRelatorios extends javax.swing.JFrame {
         jPanel1.setBackground(new java.awt.Color(173, 216, 230));
         jPanel1.setPreferredSize(new java.awt.Dimension(764, 431));
 
-        Produtos.setBackground(new java.awt.Color(29, 40, 66));
-        Produtos.setFont(Produtos.getFont().deriveFont(Produtos.getFont().getStyle() | java.awt.Font.BOLD, Produtos.getFont().getSize()-2));
-        Produtos.setText("RELATÓRIOS ANALITICOS");
-        Produtos.setActionCommand("Produtos");
-        Produtos.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        Produtos.addActionListener(new java.awt.event.ActionListener() {
+        btnAnalitico.setBackground(new java.awt.Color(29, 40, 66));
+        btnAnalitico.setFont(btnAnalitico.getFont().deriveFont(btnAnalitico.getFont().getStyle() | java.awt.Font.BOLD, btnAnalitico.getFont().getSize()-2));
+        btnAnalitico.setText("RELATÓRIOS ANALITICOS");
+        btnAnalitico.setActionCommand("Produtos");
+        btnAnalitico.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnAnalitico.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ProdutosActionPerformed(evt);
+                btnAnaliticoActionPerformed(evt);
             }
         });
 
-        jButton1.setBackground(new java.awt.Color(29, 40, 66));
-        jButton1.setFont(new java.awt.Font("Segoe UI", 1, 10)); // NOI18N
-        jButton1.setText("RELATÓRIOS SINTETICOS");
-        jButton1.setActionCommand("Clientes");
-        jButton1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        btnSintetico.setBackground(new java.awt.Color(29, 40, 66));
+        btnSintetico.setFont(new java.awt.Font("Segoe UI", 1, 10)); // NOI18N
+        btnSintetico.setText("RELATÓRIOS SINTETICOS");
+        btnSintetico.setActionCommand("Clientes");
+        btnSintetico.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnSintetico.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                btnSinteticoActionPerformed(evt);
             }
         });
 
@@ -54,9 +54,9 @@ public class TelaRelatorios extends javax.swing.JFrame {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(154, 154, 154)
-                .addComponent(Produtos, javax.swing.GroupLayout.PREFERRED_SIZE, 183, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnAnalitico, javax.swing.GroupLayout.PREFERRED_SIZE, 183, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(93, 93, 93)
-                .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, 187, Short.MAX_VALUE)
+                .addComponent(btnSintetico, javax.swing.GroupLayout.DEFAULT_SIZE, 187, Short.MAX_VALUE)
                 .addContainerGap(147, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -64,8 +64,8 @@ public class TelaRelatorios extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addContainerGap(118, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(Produtos, javax.swing.GroupLayout.DEFAULT_SIZE, 160, Short.MAX_VALUE)
-                    .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, 160, Short.MAX_VALUE))
+                    .addComponent(btnAnalitico, javax.swing.GroupLayout.DEFAULT_SIZE, 160, Short.MAX_VALUE)
+                    .addComponent(btnSintetico, javax.swing.GroupLayout.DEFAULT_SIZE, 160, Short.MAX_VALUE))
                 .addGap(107, 107, 107))
         );
 
@@ -83,13 +83,22 @@ public class TelaRelatorios extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void ProdutosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ProdutosActionPerformed
+    private void btnAnaliticoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAnaliticoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_ProdutosActionPerformed
+        
+        Relatorio_analitico analitico = new Relatorio_analitico();
+        analitico.setVisible(true);
+        
+        this.setVisible(false);
+    }//GEN-LAST:event_btnAnaliticoActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void btnSinteticoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSinteticoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
+        
+        Relatorio_sintetico sintetico = new Relatorio_sintetico();
+        sintetico.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_btnSinteticoActionPerformed
 
     /**
      * @param args the command line arguments
@@ -127,8 +136,8 @@ public class TelaRelatorios extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton Produtos;
-    private javax.swing.JButton jButton1;
+    private javax.swing.JButton btnAnalitico;
+    private javax.swing.JButton btnSintetico;
     private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
 }
