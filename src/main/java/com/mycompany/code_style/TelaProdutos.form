@@ -34,11 +34,21 @@
                   <Group type="102" alignment="0" attributes="0">
                       <Component id="jScrollPane1" min="-2" pref="337" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                          <Component id="Adicionar" pref="93" max="32767" attributes="0"/>
-                          <Component id="PesquisarButton" max="32767" attributes="0"/>
-                          <Component id="Excluir" max="32767" attributes="0"/>
-                          <Component id="Update" alignment="0" max="32767" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                              <Component id="Adicionar" pref="93" max="32767" attributes="0"/>
+                              <Component id="PesquisarButton" max="32767" attributes="0"/>
+                              <Component id="Excluir" max="32767" attributes="0"/>
+                              <Component id="Update" alignment="0" max="32767" attributes="0"/>
+                          </Group>
+                          <Group type="102" alignment="0" attributes="0">
+                              <EmptySpace min="6" pref="6" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="idLabel" min="-2" max="-2" attributes="0"/>
+                                  <Component id="idInput" min="-2" pref="78" max="-2" attributes="0"/>
+                                  <Component id="ButtonEnviar" alignment="0" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                          </Group>
                       </Group>
                   </Group>
               </Group>
@@ -61,6 +71,12 @@
                       <Component id="Excluir" min="-2" pref="43" max="-2" attributes="0"/>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Component id="Update" min="-2" pref="44" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
+                      <Component id="idLabel" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="idInput" min="-2" pref="34" max="-2" attributes="0"/>
+                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                      <Component id="ButtonEnviar" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <Component id="jScrollPane1" min="-2" pref="379" max="-2" attributes="0"/>
               </Group>
@@ -107,7 +123,6 @@
     <Component class="javax.swing.JButton" name="Adicionar">
       <Properties>
         <Property name="text" type="java.lang.String" value="Adicionar"/>
-        <Property name="actionCommand" type="java.lang.String" value="Adicionar"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="Adicionar"/>
@@ -119,8 +134,10 @@
     <Component class="javax.swing.JButton" name="Excluir">
       <Properties>
         <Property name="text" type="java.lang.String" value="Excluir"/>
-        <Property name="actionCommand" type="java.lang.String" value="Excluir"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="Excluir"/>
+      </Events>
       <AuxValues>
         <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
       </AuxValues>
@@ -135,6 +152,21 @@
       <AuxValues>
         <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
       </AuxValues>
+    </Component>
+    <Component class="javax.swing.JLabel" name="idLabel">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="id:"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JTextField" name="idInput">
+    </Component>
+    <Component class="javax.swing.JButton" name="ButtonEnviar">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Enviar"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ButtonEnviarActionPerformed"/>
+      </Events>
     </Component>
   </SubComponents>
 </Form>

@@ -5,7 +5,7 @@ import java.util.List;
  public interface IGenericDao<T> {
     void salvar(T entidade);
     void atualizar(T entidade);
-    void excluir(Long id);
-    T buscarPorId(Long id);
+    void excluir(int id);
+    T buscarPorId(int id);
     List<T> buscarTodos();
 }

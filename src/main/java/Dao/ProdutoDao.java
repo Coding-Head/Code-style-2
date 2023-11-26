@@ -51,7 +51,7 @@ public class ProdutoDao implements IGenericDao<Produto> {
     }
 
     @Override
-    public void excluir(Long id) {
+    public void excluir(int id) {
         try{
             String sql = "DELETE FROM Produto WHERE id = ?";
             try(PreparedStatement preparedStatement = conn.prepareStatement(sql)) {
@@ -64,7 +64,7 @@ public class ProdutoDao implements IGenericDao<Produto> {
     }
 
     @Override
-    public Produto buscarPorId(Long id) {
+    public Produto buscarPorId(int id) {
         try{
             String sql = "SELECT * FROM Produto WHERE id = ?";
             Produto produto = new Produto();

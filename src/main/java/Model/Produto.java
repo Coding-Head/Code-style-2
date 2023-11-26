@@ -71,5 +71,9 @@ public class Produto {
     public String toString() {
        return "Cadastro de produto{" + "Nome=" + this.nome + ", Preço=" + this.preco + "Quantidade="+ this.quantidade + '}';
     }
-
+    
+    public String UpdateProduto() {
+       return "Atualizando o produto{" + "Id=" + this.id + "Nome=" + this.nome + ", Preço=" + this.preco + "Quantidade="+ this.quantidade + '}';
+    }
+    
 }
