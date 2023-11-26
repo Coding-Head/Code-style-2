@@ -293,7 +293,7 @@ public class Cadastro extends javax.swing.JFrame {
         String email = txtEmail.getText();
         String senha = new String(txtSenha.getPassword());
 
-        if (!isValidName(nome)) {
+        if (!isValidName(nome)) {;
             JOptionPane.showMessageDialog(this, "Nome inválido. Por favor, insira um nome válido.");
             return;
         }
@@ -325,6 +325,10 @@ public class Cadastro extends javax.swing.JFrame {
 
         ClienteDto cliente = new ClienteDto(nome, cpf, endereco, sexo, email, senha);
 
+        TelaHome home = new TelaHome();
+        home.setVisible(true);
+       
+        
         save();
     }//GEN-LAST:event_btnConfirmarActionPerformed
 

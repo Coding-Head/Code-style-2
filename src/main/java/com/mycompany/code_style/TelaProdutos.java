@@ -1,17 +1,12 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
 package com.mycompany.code_style;
 
-import java.awt.Color;
+import Dao.ProdutoDao;
 import javax.swing.BorderFactory;
 import javax.swing.border.Border;
+import javax.swing.table.DefaultTableModel;
+import java.util.List;
+import Model.Produto;
 
-/**
- *
- * @author gusta
- */
 public class TelaProdutos extends javax.swing.JFrame {
 
     /**
@@ -28,23 +23,16 @@ public class TelaProdutos extends javax.swing.JFrame {
         this.getContentPane().setBackground(new java.awt.Color(173, 216, 230)); // azul
         // Defina a cor de fundo de alguns componentes
         fieldPesquisar.setBackground(new java.awt.Color(255, 255, 255)); // branco
-        jMenuBar1.setBackground(new java.awt.Color(255, 255, 255)); // branco
         jScrollPane1.setBackground(new java.awt.Color(255, 255, 255)); // branco
         ProdutosLista.setBackground(new java.awt.Color(255, 255, 255)); // branco    
-        menuEdit.setBackground(new java.awt.Color(255, 255, 255)); // branco
-        menuFile.setBackground(new java.awt.Color(255, 255, 255)); // branco
 
         //Crie uma borda com uma cor preta
         Border border = BorderFactory.createLineBorder(new java.awt.Color(70, 70, 70));
         // Aplique a borda aos componentes desejados
 
-        menuEdit.setBorder(border);
         fieldPesquisar.setBorder(border);
         jScrollPane1.setBorder(border);
         ProdutosLista.setBorder(border);
-        menuFile.setBorder(border);
-        jMenuBar1.setBorder(border);
-
     }
 
     /**
@@ -59,9 +47,10 @@ public class TelaProdutos extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         ProdutosLista = new javax.swing.JTable();
         fieldPesquisar = new javax.swing.JTextField();
-        jMenuBar1 = new javax.swing.JMenuBar();
-        menuFile = new javax.swing.JMenu();
-        menuEdit = new javax.swing.JMenu();
+        PesquisarButton = new javax.swing.JButton();
+        Adicionar = new javax.swing.JButton();
+        Excluir = new javax.swing.JButton();
+        Update = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Produtos");
@@ -69,26 +58,43 @@ public class TelaProdutos extends javax.swing.JFrame {
 
         ProdutosLista.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null}
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
             },
             new String [] {
-                "ID", "NOME", "PRICE", "QUANTIDADE", "CATEGORIA"
+                "ID", "NOME", "PRICE", "QUANTIDADE"
             }
         ));
         jScrollPane1.setViewportView(ProdutosLista);
 
         fieldPesquisar.setText("Pesquisar");
 
-        menuFile.setText("File");
-        jMenuBar1.add(menuFile);
+        PesquisarButton.setText("Pesquisar");
+        PesquisarButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Pesquisar(evt);
+            }
+        });
 
-        menuEdit.setText("Edit");
-        jMenuBar1.add(menuEdit);
+        Adicionar.setText("Adicionar");
+        Adicionar.setActionCommand("Adicionar");
+        Adicionar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Adicionar(evt);
+            }
+        });
 
-        setJMenuBar(jMenuBar1);
+        Excluir.setText("Excluir");
+        Excluir.setActionCommand("Excluir");
+
+        Update.setText("Update");
+        Update.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Update(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -98,58 +104,58 @@ public class TelaProdutos extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(fieldPesquisar)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 425, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 337, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(Adicionar, javax.swing.GroupLayout.DEFAULT_SIZE, 93, Short.MAX_VALUE)
+                            .addComponent(PesquisarButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(Excluir, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(Update, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(10, Short.MAX_VALUE)
+                .addContainerGap()
                 .addComponent(fieldPesquisar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 356, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(24, 24, 24))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(PesquisarButton, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(Adicionar, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(Excluir, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(Update, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 379, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(16, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    /**
-     * @param args the command line arguments
-     */
+    private void Pesquisar(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Pesquisar
+        consultarComputador();
+    }//GEN-LAST:event_Pesquisar
+
+    private void Adicionar(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Adicionar
+        CadastroProduto cadastroProduto = new CadastroProduto();
+        cadastroProduto.setVisible(true);
+        Update.setEnabled(false);
+        Excluir.setEnabled(false);
+    }//GEN-LAST:event_Adicionar
+
+    private void Update(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Update
+        CadastroProduto cadastroProduto = new CadastroProduto();
+        cadastroProduto.setVisible(true);
+        Adicionar.setEnabled(false);
+        Excluir.setEnabled(false);
+    }//GEN-LAST:event_Update
+
+    
     public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(TelaProdutos.class
-                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
-
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(TelaProdutos.class
-                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
-
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(TelaProdutos.class
-                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
-
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(TelaProdutos.class
-                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-        //</editor-fold>
-
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
@@ -157,13 +163,32 @@ public class TelaProdutos extends javax.swing.JFrame {
             }
         });
     }
+    
+    
+    private void consultarComputador() {
+        ProdutoDao produtoDao = new ProdutoDao();
+        List<Produto> produtos = produtoDao.buscarTodos();
+
+        // Limpar dados da tabela
+        DefaultTableModel model = (DefaultTableModel) ProdutosLista.getModel();
+        model.setRowCount(0);
+
+        // Preencher a tabela com os resultados
+        for (Produto computador : produtos) {
+            model.addRow(new Object[]{
+               computador.getId(), computador.getNome(), computador.getPreco(), computador.getQuantidade()
+            });
+        }
+    }
+    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    public javax.swing.JButton Adicionar;
+    public javax.swing.JButton Excluir;
+    private javax.swing.JButton PesquisarButton;
     private javax.swing.JTable ProdutosLista;
+    public javax.swing.JButton Update;
     private javax.swing.JTextField fieldPesquisar;
-    private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JMenu menuEdit;
-    private javax.swing.JMenu menuFile;
     // End of variables declaration//GEN-END:variables
 }

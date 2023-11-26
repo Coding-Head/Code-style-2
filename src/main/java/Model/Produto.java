@@ -1,14 +1,8 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package Model;
 
-/**
- *
- * @author gusta
- */
 public class Produto {
+    
+    private long id;
     private String nome;
     private Double preco;
     private int quantidade;
@@ -26,42 +20,50 @@ public class Produto {
     /**
      * @return the name
      */
-    public String getName() {
+    public String getNome() {
         return nome;
+    }
+    
+    public long getId(){
+        return id;
+    }
+ 
+    public void setId(long id){
+        this.id = id;
     }
 
     /**
      * @param name the name to set
      */
-    public void setName(String nome) {
+    public void setNome(String nome) {
         this.nome = nome;
     }
 
     /**
      * @return the price
      */
-    public Double getPrice() {
+    public Double getPreco() {
         return preco;
     }
 
     /**
      * @param price the price to set
      */
-    public void setPrice(Double preco) {
+    public void setPreco(Double preco) {
         this.preco = preco;
     }
 
     /**
      * @return the quantity
      */
-    public int getQuantity() {
+    public int getQuantidade() {
         return quantidade;
     }
 
     /**
      * @param quantity the quantity to set
      */
-    public void setQuantity(int quantidade) {
+    public void setQuantidade(int quantidade) {
         this.quantidade = quantidade;
     }
     

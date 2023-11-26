@@ -24,7 +24,8 @@ public class DatabaseConector {
             String sql = "CREATE TABLE IF NOT EXISTS Produto ("
                     + "id INT AUTO_INCREMENT PRIMARY KEY,"
                     + "nome VARCHAR(255),"
-                    + "preco DOUBLE);";
+                    + "preco DOUBLE, "
+                    + "quantidade INT NOT NULL);";
 
             PreparedStatement statement = conn.prepareStatement(sql);
             statement.executeUpdate();
@@ -118,6 +119,7 @@ public class DatabaseConector {
 
             url = "jdbc:mysql://localhost:3306/" + dbName + "?user=root&password=252525";
             connection = DriverManager.getConnection(url);
+            
             return connection;
         } catch (SQLException e) {
             JOptionPane.showMessageDialog(null, "Erro na conexão com o banco de dados: " + e.getMessage());

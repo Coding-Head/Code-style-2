@@ -4,6 +4,7 @@ com\mycompany\code_style\Relatorio_sintetico$1.class
 com\mycompany\code_style\Cadastro$5.class
 com\mycompany\code_style\EncontreProduto$1.class
 com\mycompany\code_style\TelaLogin$3.class
+com\mycompany\code_style\TelaProdutos$2.class
 com\mycompany\code_style\TelaLogin.class
 com\mycompany\code_style\Cadastro$2.class
 com\mycompany\code_style\TelaHome.class
@@ -21,6 +22,7 @@ com\mycompany\code_style\TelaLogin$4.class
 com\mycompany\code_style\Cadastro$8.class
 com\mycompany\code_style\EncontreProduto.class
 com\mycompany\code_style\TelaDeCompra.class
+com\mycompany\code_style\TelaProdutos$3.class
 Model\Cadastro.class
 com\mycompany\code_style\TelaHome$1.class
 com\mycompany\code_style\TelaRelatorios$2.class
@@ -29,10 +31,12 @@ com\mycompany\code_style\TelaHome$2.class
 Model\Venda.class
 Model\Cliente.class
 Model\Produto.class
+com\mycompany\code_style\CadastroProduto$4.class
 com\mycompany\code_style\Cadastro.class
 com\mycompany\code_style\TelaProdutos$1.class
 Model\Categoria.class
 com\mycompany\code_style\TelaRelatorios$1.class
+com\mycompany\code_style\TelaProdutos$4.class
 com\mycompany\code_style\TelaProdutos.class
 com\mycompany\code_style\CadastroProduto$1.class
 com\mycompany\code_style\Cadastro$7.class
@@ -44,8 +48,10 @@ com\mycompany\code_style\Relatorio_analitico.class
 com\mycompany\code_style\EncontreProduto$2.class
 com\mycompany\code_style\TelaLogin$2.class
 com\mycompany\code_style\TelaHome$3.class
+com\mycompany\code_style\CadastroProduto$3.class
 Dao\ClientDatabaseAccesss.class
 Dto\ClienteDto.class
+Dao\ProdutoDao.class
 com\mycompany\code_style\Relatorio_sintetico$2.class
 com\mycompany\code_style\Cadastro$3.class
 com\mycompany\code_style\TelaRelatorios.class
