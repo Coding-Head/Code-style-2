@@ -20,7 +20,7 @@ public class TelaRelatorios extends javax.swing.JFrame {
         Produtos = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Relatórios");
 
         jPanel1.setBackground(new java.awt.Color(173, 216, 230));

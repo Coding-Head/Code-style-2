@@ -13,12 +13,11 @@ public class TelaProdutos extends javax.swing.JFrame {
     /**
      * Creates new form Tela_Produtos
      */
+    private ProdutoDao produtoDao = new ProdutoDao();
+    
     public TelaProdutos() {
         initComponents();
         CadastroColors();
-        idInput.setVisible(false);
-        idLabel.setVisible(false);
-        ButtonEnviar.setVisible(false);
     }
 
     private void CadastroColors() {
@@ -26,7 +25,7 @@ public class TelaProdutos extends javax.swing.JFrame {
         // Defina a cor de fundo do JFrame
         this.getContentPane().setBackground(new java.awt.Color(173, 216, 230)); // azul
         // Defina a cor de fundo de alguns componentes
-        fieldPesquisar.setBackground(new java.awt.Color(255, 255, 255)); // branco
+        inputPesquisar.setBackground(new java.awt.Color(255, 255, 255)); // branco
         jScrollPane1.setBackground(new java.awt.Color(255, 255, 255)); // branco
         ProdutosLista.setBackground(new java.awt.Color(255, 255, 255)); // branco    
 
@@ -34,7 +33,7 @@ public class TelaProdutos extends javax.swing.JFrame {
         Border border = BorderFactory.createLineBorder(new java.awt.Color(70, 70, 70));
         // Aplique a borda aos componentes desejados
 
-        fieldPesquisar.setBorder(border);
+        inputPesquisar.setBorder(border);
         jScrollPane1.setBorder(border);
         ProdutosLista.setBorder(border);
     }
@@ -50,16 +49,14 @@ public class TelaProdutos extends javax.swing.JFrame {
 
         jScrollPane1 = new javax.swing.JScrollPane();
         ProdutosLista = new javax.swing.JTable();
-        fieldPesquisar = new javax.swing.JTextField();
+        inputPesquisar = new javax.swing.JTextField();
         PesquisarButton = new javax.swing.JButton();
         Adicionar = new javax.swing.JButton();
         Excluir = new javax.swing.JButton();
         Update = new javax.swing.JButton();
-        idLabel = new javax.swing.JLabel();
-        idInput = new javax.swing.JTextField();
-        ButtonEnviar = new javax.swing.JButton();
+        ButtonPesquisarSearch = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Produtos");
         setBackground(new java.awt.Color(153, 255, 255));
 
@@ -76,7 +73,7 @@ public class TelaProdutos extends javax.swing.JFrame {
         ));
         jScrollPane1.setViewportView(ProdutosLista);
 
-        fieldPesquisar.setText("Pesquisar");
+        inputPesquisar.setText("Pesquisar...");
 
         PesquisarButton.setText("Pesquisar");
         PesquisarButton.addActionListener(new java.awt.event.ActionListener() {
@@ -106,12 +103,10 @@ public class TelaProdutos extends javax.swing.JFrame {
             }
         });
 
-        idLabel.setText("id:");
-
-        ButtonEnviar.setText("Enviar");
-        ButtonEnviar.addActionListener(new java.awt.event.ActionListener() {
+        ButtonPesquisarSearch.setText("🔎");
+        ButtonPesquisarSearch.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ButtonEnviarActionPerformed(evt);
+                ButtonPesquisarSearch(evt);
             }
         });
 
@@ -121,48 +116,43 @@ public class TelaProdutos extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(inputPesquisar)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 337, Short.MAX_VALUE))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(fieldPesquisar)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 337, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(Adicionar, javax.swing.GroupLayout.DEFAULT_SIZE, 93, Short.MAX_VALUE)
-                                .addComponent(PesquisarButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(Excluir, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(Update, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(6, 6, 6)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(idLabel)
-                                    .addComponent(idInput, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(ButtonEnviar))))))
-                .addContainerGap())
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(Adicionar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(PesquisarButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(Excluir, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(Update, javax.swing.GroupLayout.DEFAULT_SIZE, 93, Short.MAX_VALUE))
+                        .addContainerGap())
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(ButtonPesquisarSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(fieldPesquisar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(inputPesquisar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(ButtonPesquisarSearch))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
+                        .addGap(12, 12, 12)
                         .addComponent(PesquisarButton, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(Adicionar, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(Excluir, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(Update, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(30, 30, 30)
-                        .addComponent(idLabel)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(idInput, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(ButtonEnviar))
+                        .addComponent(Update, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 379, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(16, Short.MAX_VALUE))
+                .addContainerGap(15, Short.MAX_VALUE))
         );
 
         pack();
@@ -187,40 +177,18 @@ public class TelaProdutos extends javax.swing.JFrame {
     }//GEN-LAST:event_Update
 
     private void Excluir(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Excluir
-        ativarCampo(false);
-        idInput.setVisible(true);
-        idLabel.setVisible(true);   
-        ButtonEnviar.setVisible(true);
+        int linhaSelecionada = ProdutosLista.getSelectedRow();
+        DefaultTableModel modelo = (DefaultTableModel) ProdutosLista.getModel();
+        int idExcluir = Integer.parseInt(modelo.getValueAt(linhaSelecionada, 0).toString());
+        produtoDao.excluir(idExcluir);
+        JOptionPane.showMessageDialog(rootPane, "Sucesso");
     }//GEN-LAST:event_Excluir
 
-    private void ButtonEnviarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonEnviarActionPerformed
-        int id = Integer.parseInt(idInput.getText());
-        
-        Excluir(id);
-        ativarCampo(true);
-    }//GEN-LAST:event_ButtonEnviarActionPerformed
+    private void ButtonPesquisarSearch(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonPesquisarSearch
+        String nome = inputPesquisar.getText();
+        Search(nome);
+    }//GEN-LAST:event_ButtonPesquisarSearch
 
-    
-    private void Excluir(int id) {
-        ProdutoDao produtoDao = new ProdutoDao();
-        produtoDao.excluir(id);
-    }
-    
-    private void ativarCampo(boolean active) {
-        Adicionar.setEnabled(active);
-        Update.setEnabled(active);
-    }
-    
-    public static void main(String args[]) {
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new TelaProdutos().setVisible(true);
-            }
-        });
-    }
-    
-    
     private void consultarComputador() {
         ProdutoDao produtoDao = new ProdutoDao();
         List<Produto> produtos = produtoDao.buscarTodos();
@@ -230,24 +198,52 @@ public class TelaProdutos extends javax.swing.JFrame {
         model.setRowCount(0);
 
         // Preencher a tabela com os resultados
-        for (Produto computador : produtos) {
+        for (Produto produto : produtos) {
             model.addRow(new Object[]{
-               computador.getId(), computador.getNome(), computador.getPreco(), computador.getQuantidade()
+                produto.getId(), produto.getNome(), produto.getPreco(), produto.getQuantidade()
             });
         }
     }
-    
+
+    private void Search(String pesquisa) {
+        ProdutoDao produtoDao = new ProdutoDao();
+        List<Produto> produtos = produtoDao.search(pesquisa);
+
+        // Limpar dados da tabela
+        DefaultTableModel model = (DefaultTableModel) ProdutosLista.getModel();
+        model.setRowCount(0);
+
+        for (Produto produto : produtos) {
+            model.addRow(new Object[]{
+                produto.getId(), produto.getNome(), produto.getPreco(), produto.getQuantidade()
+            });
+        }
+    }
+
+    private void ativarCampo(boolean active) {
+        Adicionar.setEnabled(active);
+        Update.setEnabled(active);
+    }
+
+    public static void main(String args[]) {
+        /* Create and display the form */
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                new TelaProdutos().setVisible(true);
+            }
+        });
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.JButton Adicionar;
-    private javax.swing.JButton ButtonEnviar;
+    private javax.swing.JButton ButtonPesquisarSearch;
     public javax.swing.JButton Excluir;
     private javax.swing.JButton PesquisarButton;
     private javax.swing.JTable ProdutosLista;
     public javax.swing.JButton Update;
-    private javax.swing.JTextField fieldPesquisar;
-    private javax.swing.JTextField idInput;
-    private javax.swing.JLabel idLabel;
+    private javax.swing.JTextField inputPesquisar;
     private javax.swing.JScrollPane jScrollPane1;
     // End of variables declaration//GEN-END:variables
 }
+
+//

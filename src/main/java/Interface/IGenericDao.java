@@ -8,4 +8,5 @@ import java.util.List;
     void excluir(int id);
     T buscarPorId(int id);
     List<T> buscarTodos();
+    List<T> search(String pesquisa);
 }

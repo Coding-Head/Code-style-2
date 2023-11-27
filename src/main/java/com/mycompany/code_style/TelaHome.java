@@ -17,8 +17,7 @@ public class TelaHome extends javax.swing.JFrame {
      */
     public TelaHome() {
         initComponents();
-        
-        DatabaseConector dbConector = new DatabaseConector();
+        new DatabaseConector();
     }
 
     /**

@@ -25,7 +25,7 @@ public class DatabaseConector {
                     + "id INT AUTO_INCREMENT PRIMARY KEY,"
                     + "nome VARCHAR(255),"
                     + "preco DOUBLE, "
-                    + "quantidade INT NOT NULL);";
+                    + "quantidade INT NOT NULL)";
 
             PreparedStatement statement = conn.prepareStatement(sql);
             statement.executeUpdate();
@@ -35,67 +35,18 @@ public class DatabaseConector {
                     + "id INT AUTO_INCREMENT PRIMARY KEY,"
                     + "nome VARCHAR(255),"
                     + "cpf VARCHAR(15),"
-                    + "endereco VARCHAR(50),"
-                    + "sexo VARCHAR(25),"
-                    + "email VARCHAR(90),"
-                    + "senha VARCHAR(30));";
-
-            statement = conn.prepareStatement(sql);
-            statement.executeUpdate();
-            statement.close();
-
-            sql = "CREATE TABLE IF NOT EXISTS Categoria ("
-                    + "id INT AUTO_INCREMENT PRIMARY KEY,"
-                    + "nome VARCHAR(60),"
-                    + "descricao VARCHAR(120));";
-
-            statement = conn.prepareStatement(sql);
-            statement.executeUpdate();
-            statement.close();
-
-            sql = "CREATE TABLE IF NOT EXISTS Login("
-                    + "id INT AUTO_INCREMENT PRIMARY KEY,"
-                    + "email VARCHAR(80),"
-                    + "senha VARCHAR(30));";
-
-            statement = conn.prepareStatement(sql);
-            statement.executeUpdate();
-            statement.close();
-
-            sql = "CREATE TABLE IF NOT EXISTS Cadastro("
-                    + "idCadastro INT PRIMARY KEY AUTO_INCREMENT,"
-                    + "nome VARCHAR(50),"
-                    + "cpf VARCHAR(15),"
-                    + "idade INT NOT NULL,"
-                    + "endereco VARCHAR(45),"
-                    + "sexo CHAR(20),"
-                    + "email VARCHAR(40),"
-                    + "senha VARCHAR(30));";
-
-            statement = conn.prepareStatement(sql);
-            statement.executeUpdate();
-            statement.close();
-
-            sql = "CREATE TABLE IF NOT EXISTS Cadastro("
-                    + "idCadastro INT PRIMARY KEY AUTO_INCREMENT,"
-                    + "nome VARCHAR(50),"
-                    + "cpf VARCHAR(15),"
-                    + "idade INT NOT NULL,"
-                    + "endereco VARCHAR(45),"
-                    + "sexo CHAR(20),"
-                    + "email VARCHAR(40),"
-                    + "senha VARCHAR(30));";
+                    + "email VARCHAR(255))";
 
             statement = conn.prepareStatement(sql);
             statement.executeUpdate();
             statement.close();
 
             sql = "CREATE TABLE IF NOT EXISTS Venda("
-                    + "idVenda INT PRIMARY KEY AUTO_INCREMENT,"
+                    + "id INT PRIMARY KEY AUTO_INCREMENT,"
                     + "TotalDaVenda int,"
                     + "QtdVendida int,"
                     + "MtdPagamento int,"
-                    + "EstadoVenda varchar(25));";
+                    + "EstadoVenda varchar(25))";
             
             statement = conn.prepareStatement(sql);
             statement.executeUpdate();

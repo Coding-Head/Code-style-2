@@ -10,55 +10,35 @@ package Model;
  */
 public class Cliente {
     
+    private long id;
     private String nome;
     private String cpf;
-    private String idade;
-    private String endereco;
-    private String sexo;
     private String email;
-    private String senha;
 
     public Cliente() {
         
     }
     
-    public Cliente(String nome, String cpf, String endereco, String sexo, String email, String senha) {
+    public Cliente(String nome, String cpf, String email) {
         this.nome = nome;
         this.cpf = cpf;
-        this.endereco = endereco;
-        this.sexo = sexo;
         this.email = email;
-        this.senha = senha;
-        this.idade = idade;
     }
 
+    public long getId() {
+        return id;
+    }
+    
+    public void setId(long id) {
+        this.id = id;
+    }
+    
     public String getNome() {
         return nome;
     }
 
     public void setNome(String nome) {
         this.nome = nome;
-    }
-
-    public String getIdade() {
-        return idade;
-    }
-
-    public void setIdade(String idade) {
-        this.idade = idade;
-    }
-    /**
-     * @return the name
-     */
-    public String getName() {
-        return nome;
-    }
-
-    /**
-     * @param name the name to set
-     */
-    public void setName(String name) {
-        this.nome = name;
     }
 
     /**
@@ -76,31 +56,6 @@ public class Cliente {
     }
 
     /**
-     * @return the address
-     */
-    public String getEndereco() {
-        return endereco;
-    }
-
-    public void setEndereco(String endereco) {
-        this.endereco = endereco;
-    }
-
-    /**
-     * @return the gender
-     */
-    public String getSexo() {
-        return sexo;
-    }
-
-    /**
-     * @param sexo the gender to set
-     */
-    public void setSexo(String sexo) {
-        this.sexo = sexo;
-    }
-
-    /**
      * @return the email
      */
     public String getEmail() {
@@ -112,19 +67,5 @@ public class Cliente {
      */
     public void setEmail(String email) {
         this.email = email;
-    }
-
-    /**
-     * @return the password
-     */
-    public String getSenha() {
-        return senha;
-    }
-
-    /**
-     * @param senha the password to set
-    */
-    public void setSenha(String senha) {
-        this.senha = senha;
     }
 }

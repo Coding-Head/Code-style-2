@@ -113,4 +113,29 @@ public class ProdutoDao implements IGenericDao<Produto> {
         }
         return produtos;
     }
+    
+    @Override
+    public List<Produto> search(String pesquisa) {
+        List<Produto> produtos = new ArrayList();
+        
+        try{
+              String sql = "SELECT * FROM produto WHERE nome LIKE '%" + pesquisa + "%'";
+            PreparedStatement preparedStatement = conn.prepareStatement(sql);
+                  
+            ResultSet resultSet = preparedStatement.executeQuery();
+
+            while (resultSet.next()) {
+                Produto produto = new Produto();
+                produto.setId(resultSet.getLong("id"));
+                produto.setNome(resultSet.getString("nome"));
+                produto.setPreco(resultSet.getDouble("preco"));
+                produto.setQuantidade(resultSet.getInt("quantidade"));
+                produtos.add(produto);
+            }
+        }catch(SQLException e) {
+            e.printStackTrace();
+        }
+        
+        return produtos;
+    }
 }

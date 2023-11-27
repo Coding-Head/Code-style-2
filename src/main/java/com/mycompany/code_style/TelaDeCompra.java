@@ -77,13 +77,13 @@ public class TelaDeCompra extends javax.swing.JFrame {
 
         tblDeCompra.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null}
             },
             new String [] {
-                "NOME", "QUANTIDADE", "PREÇO", "CATEGORIA"
+                "NOME", "QUANTIDADE", "PREÇO"
             }
         ));
         tblDeCompra.setShowGrid(true);
