@@ -34,7 +34,7 @@ public class DatabaseConector {
             sql = "CREATE TABLE IF NOT EXISTS Cliente ("
                     + "id INT AUTO_INCREMENT PRIMARY KEY,"
                     + "nome VARCHAR(255),"
-                    + "cpf VARCHAR(15),"
+                    + "cpf VARCHAR(35),"
                     + "email VARCHAR(255))";
 
             statement = conn.prepareStatement(sql);
@@ -60,7 +60,7 @@ public class DatabaseConector {
     public Connection dbConn() {
         try {
 
-            String url = "jdbc:mysql://localhost:3306/?user=root&password=252525";
+            String url = "jdbc:mysql://localhost:3306/?user=root&password=";
             Connection connection = DriverManager.getConnection(url);
 
             String dbName = "code_style";
@@ -68,7 +68,7 @@ public class DatabaseConector {
 
             connection.prepareStatement(createDbSql).executeUpdate();
 
-            url = "jdbc:mysql://localhost:3306/" + dbName + "?user=root&password=252525";
+            url = "jdbc:mysql://localhost:3306/" + dbName + "?user=root&password=";
             connection = DriverManager.getConnection(url);
             
             return connection;

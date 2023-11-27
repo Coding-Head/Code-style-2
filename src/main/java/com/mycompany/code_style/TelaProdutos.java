@@ -74,6 +74,11 @@ public class TelaProdutos extends javax.swing.JFrame {
         jScrollPane1.setViewportView(ProdutosLista);
 
         inputPesquisar.setText("Pesquisar...");
+        inputPesquisar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                inputPesquisarActionPerformed(evt);
+            }
+        });
 
         PesquisarButton.setText("Pesquisar");
         PesquisarButton.addActionListener(new java.awt.event.ActionListener() {
@@ -188,6 +193,10 @@ public class TelaProdutos extends javax.swing.JFrame {
         String nome = inputPesquisar.getText();
         Search(nome);
     }//GEN-LAST:event_ButtonPesquisarSearch
+
+    private void inputPesquisarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inputPesquisarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_inputPesquisarActionPerformed
 
     private void consultarComputador() {
         ProdutoDao produtoDao = new ProdutoDao();

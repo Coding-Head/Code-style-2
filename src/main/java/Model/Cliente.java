@@ -68,4 +68,14 @@ public class Cliente {
     public void setEmail(String email) {
         this.email = email;
     }
+    
+    @Override
+    public String toString() {
+       return "Cadastro de Cliente{" + "Nome=" + this.nome + ", Email=" + this.email + "Quantidade="+ this.cpf + '}';
+    }
+    
+    public String UpdateCliente() {
+       return "Atualizando o Cliente{" + "Id=" + this.id + "Nome=" + this.nome + ", Email=" + this.email + "Cpf="+ this.cpf + '}';
+    }
+    
 }
