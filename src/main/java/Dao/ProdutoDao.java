@@ -71,7 +71,7 @@ public class ProdutoDao implements IGenericDao<Produto> {
             
             try(PreparedStatement preparedStatement = conn.prepareStatement(sql)) {
                 
-                preparedStatement.setLong(1, id);
+                preparedStatement.setInt(1, id);
                 ResultSet resultSet = preparedStatement.executeQuery();
                 
                 if (resultSet.next()) {

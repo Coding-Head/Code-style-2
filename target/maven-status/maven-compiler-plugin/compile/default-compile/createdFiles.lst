@@ -8,7 +8,6 @@ com\mycompany\code_style\TelaLogin$3.class
 com\mycompany\code_style\TelaProdutos$2.class
 com\mycompany\code_style\EditarProduto$2.class
 com\mycompany\code_style\TelaLogin.class
-com\mycompany\code_style\CadastroCliente$7.class
 com\mycompany\code_style\EditarProduto.class
 com\mycompany\code_style\TelaHome.class
 com\mycompany\code_style\TelaDeCompra$1.class
@@ -16,7 +15,6 @@ Interface\IGenericDao.class
 com\mycompany\code_style\Relatorio_analitico$1.class
 com\mycompany\code_style\Relatorio_sintetico.class
 Dao\ClienteDao.class
-com\mycompany\code_style\CadastroCliente$6.class
 com\mycompany\code_style\TelaHome$4.class
 Dto\ProdutoDto.class
 com\mycompany\code_style\Code_Style.class
@@ -30,7 +28,6 @@ com\mycompany\code_style\TelaRelatorios$2.class
 com\mycompany\code_style\TelaLogin$1.class
 com\mycompany\code_style\TelaHome$2.class
 Model\Venda.class
-com\mycompany\code_style\CadastroCliente$8.class
 Model\Cliente.class
 Model\Produto.class
 com\mycompany\code_style\CadastroCliente$5.class

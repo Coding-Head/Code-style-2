@@ -9,6 +9,8 @@ import javax.swing.border.Border;
 
 public class CadastroProduto extends javax.swing.JFrame {
     
+    private ProdutoDao produtoDao = new ProdutoDao();
+    
     public CadastroProduto() {
         initComponents();
         colors();
@@ -123,7 +125,7 @@ public class CadastroProduto extends javax.swing.JFrame {
               
         JOptionPane.showConfirmDialog(null, produto.toString());
         
-        CadastrarProduto(produto);
+        produtoDao.salvar(produto);
     }//GEN-LAST:event_btnCadastroProdutoActionPerformed
 
     boolean isProductNameValid(String name) {
@@ -145,11 +147,6 @@ public class CadastroProduto extends javax.swing.JFrame {
             return true;
         }
         return false;
-    }
-    
-    private void CadastrarProduto(Produto produto) {
-        ProdutoDao produtoDao = new ProdutoDao();
-        produtoDao.salvar(produto);
     }
     
     private void txtNomeProdutoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNomeProdutoActionPerformed
