@@ -27,7 +27,7 @@ public class VendaDao {
 
     public void inserirVenda(Venda venda) {
         try {
-            String sql = "INSERT INTO Venda (TotalDaVenda, QtdVendida, MtdPagamento, EstadoVenda, ClienteID, ProdutoID) VALUES (?, ?, ?, ?, ?, ?)";
+            String sql = "INSERT INTO Venda (TotalDaVenda, ClienteID, ProdutoID) VALUES (?, ?, ?, ?, ?, ?)";
             PreparedStatement statement = conn.prepareStatement(sql);
             statement.setDouble(1, venda.getTotalDaVenda());
             statement.setInt(5, venda.getClientId());
