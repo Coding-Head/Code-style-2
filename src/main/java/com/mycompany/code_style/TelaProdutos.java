@@ -220,11 +220,6 @@ public class TelaProdutos extends javax.swing.JFrame {
         }
     }
 
-    private void ativarCampo(boolean active) {
-        Adicionar.setEnabled(active);
-        Update.setEnabled(active);
-    }
-
     public static void main(String args[]) {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
