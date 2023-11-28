@@ -12,8 +12,9 @@ C:\Users\gusta\OneDrive\Documentos\Github\Code_style\Code-style-2\src\main\java\
 C:\Users\gusta\OneDrive\Documentos\Github\Code_style\Code-style-2\src\main\java\Repository\DatabaseConector.java
 C:\Users\gusta\OneDrive\Documentos\Github\Code_style\Code-style-2\src\main\java\Dto\ClienteDto.java
 C:\Users\gusta\OneDrive\Documentos\Github\Code_style\Code-style-2\src\main\java\com\mycompany\code_style\TelaVendas.java
+C:\Users\gusta\OneDrive\Documentos\Github\Code_style\Code-style-2\src\main\java\com\mycompany\code_style\EditarCliente.java
 C:\Users\gusta\OneDrive\Documentos\Github\Code_style\Code-style-2\src\main\java\com\mycompany\code_style\TelaProdutos.java
-C:\Users\gusta\OneDrive\Documentos\Github\Code_style\Code-style-2\src\main\java\com\mycompany\code_style\EncontreProduto.java
+C:\Users\gusta\OneDrive\Documentos\Github\Code_style\Code-style-2\src\main\java\Dao\VendaDao.java
 C:\Users\gusta\OneDrive\Documentos\Github\Code_style\Code-style-2\src\main\java\com\mycompany\code_style\CadastroCliente.java
 C:\Users\gusta\OneDrive\Documentos\Github\Code_style\Code-style-2\src\main\java\Model\Produto.java
 C:\Users\gusta\OneDrive\Documentos\Github\Code_style\Code-style-2\src\main\java\com\mycompany\code_style\TelaHome.java
@@ -21,5 +22,6 @@ C:\Users\gusta\OneDrive\Documentos\Github\Code_style\Code-style-2\src\main\java\
 C:\Users\gusta\OneDrive\Documentos\Github\Code_style\Code-style-2\src\main\java\com\mycompany\code_style\CadastroProduto.java
 C:\Users\gusta\OneDrive\Documentos\Github\Code_style\Code-style-2\src\main\java\com\mycompany\code_style\TelaLogin.java
 C:\Users\gusta\OneDrive\Documentos\Github\Code_style\Code-style-2\src\main\java\Model\Venda.java
+C:\Users\gusta\OneDrive\Documentos\Github\Code_style\Code-style-2\src\main\java\com\mycompany\code_style\TelaCliente.java
 C:\Users\gusta\OneDrive\Documentos\Github\Code_style\Code-style-2\src\main\java\Dto\LoginDto.java
 C:\Users\gusta\OneDrive\Documentos\Github\Code_style\Code-style-2\src\main\java\com\mycompany\code_style\Relatorio_sintetico.java

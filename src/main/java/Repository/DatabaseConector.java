@@ -34,7 +34,7 @@ public class DatabaseConector {
             sql = "CREATE TABLE IF NOT EXISTS Cliente ("
                     + "id INT AUTO_INCREMENT PRIMARY KEY,"
                     + "nome VARCHAR(255),"
-                    + "cpf VARCHAR(15),"
+                    + "cpf VARCHAR(35),"
                     + "email VARCHAR(255))";
 
             statement = conn.prepareStatement(sql);
@@ -43,11 +43,12 @@ public class DatabaseConector {
 
             sql = "CREATE TABLE IF NOT EXISTS Venda("
                     + "id INT PRIMARY KEY AUTO_INCREMENT,"
-                    + "TotalDaVenda int,"
-                    + "QtdVendida int,"
-                    + "MtdPagamento int,"
-                    + "EstadoVenda varchar(25))";
-            
+                    + "quantidade INT,"
+                    + "ClienteID INT,"  // Foreign key reference to Cliente table
+                    + "ProdutoID INT,"  // Foreign key reference to Produto table
+                    + "FOREIGN KEY (ClienteID) REFERENCES Cliente(id),"
+                    + "FOREIGN KEY (ProdutoID) REFERENCES Produto(id))";
+
             statement = conn.prepareStatement(sql);
             statement.executeUpdate();
             statement.close();

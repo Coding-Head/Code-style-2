@@ -34,8 +34,8 @@ public class ClienteDao implements IGenericDao<Cliente> {
             PreparedStatement preparedStatement = conn.prepareStatement(sql);
             
             preparedStatement.setString(1, cliente.getNome());
-            preparedStatement.setString(2, cliente.getCpf());
-            preparedStatement.setString(3, cliente.getEmail());  
+            preparedStatement.setString(2, cliente.getCpf()); 
+            preparedStatement.setString(3, cliente.getEmail());
             preparedStatement.executeUpdate();
         }catch(SQLException e) {
             e.printStackTrace();
@@ -85,7 +85,7 @@ public class ClienteDao implements IGenericDao<Cliente> {
                 if (resultSet.next()) {
                     cliente.setId(resultSet.getLong("id"));
                     cliente.setNome(resultSet.getString("nome"));
-                    cliente.setCpf(resultSet.getString("preco"));
+                    cliente.setCpf(resultSet.getString("cpf"));
                     cliente.setEmail(resultSet.getString("email"));
                     return cliente;     
                 }   

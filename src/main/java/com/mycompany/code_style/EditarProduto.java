@@ -50,6 +50,12 @@ public class EditarProduto extends javax.swing.JFrame {
             }
         });
 
+        inputNome.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                inputNomeActionPerformed(evt);
+            }
+        });
+
         nomeLabel.setText("Nome:");
 
         preço.setToolTipText("");
@@ -142,6 +148,10 @@ public class EditarProduto extends javax.swing.JFrame {
         
         UpdateProduto(produto);
     }//GEN-LAST:event_inputEnviar
+
+    private void inputNomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inputNomeActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_inputNomeActionPerformed
 
      private void UpdateProduto(Produto produto) {
         ProdutoDao produtoDao = new ProdutoDao();
