@@ -276,7 +276,8 @@ public class TelaVendas extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
+        SwingUtilities.invokeLater(new Runnable() {
+            @Override
             public void run() {
                 new TelaVendas().setVisible(true);
             }
