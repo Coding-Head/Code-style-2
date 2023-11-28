@@ -19,8 +19,9 @@ public class ClientDatabaseAccesss {
     public ResultSet clientAuthentication(ClienteDto data) {
         conn = new DatabaseConector().dbConn();
         
+        
         try {
-            String sql = "select * from client where client_name = ? and client_passowrd = ?";
+            String sql = "select * from client where client_name = ? and client_password = ?";
             
             PreparedStatement pstm = conn.prepareStatement(sql);
             pstm.setString(1, data.getEmail());

@@ -3,61 +3,57 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package Model;
+
 public class Venda {
     
-    private int IdVenda;
-    private double TotalDaVenda;
-    private double QtdVendida;
-    private String MtdPagamento;
-    private String EstadoVenda;
+    private int id;
+    private int quantidade;
+    private int ClientId;
+    private int ProdutoID;
     
     public Venda(){
 }
-    public Venda(int IdVenda,double TotalDaVenda, double QtdVendida, String MtdPagamento,String EstadoVenda){
-        this.TotalDaVenda = TotalDaVenda;
-        this.QtdVendida = QtdVendida;
-        this.MtdPagamento = MtdPagamento;
-        this.EstadoVenda = EstadoVenda;
-    }
-
-    public int getIdVenda() {
-        return IdVenda;
-    }
-
-    public void setIdVenda(int IdVenda) {
-        this.IdVenda = IdVenda;
-    }
-
-    public double getTotalDaVenda() {
-        return TotalDaVenda;
-    }
-
-    public void setTotalDaVenda(double TotalDaVenda) {
-        this.TotalDaVenda = TotalDaVenda;
-    }
-
-    public double getQtdVendida() {
-        return QtdVendida;
-    }
-
-    public void setQtdVendida(double QtdVendida) {
-        this.QtdVendida = QtdVendida;
-    }
-
-    public String getMtdPagamento() {
-        return MtdPagamento;
-    }
-
-    public void setMtdPagamento(String MtdPagamento) {
-        this.MtdPagamento = MtdPagamento;
-    }
-
-    public String getEstadoVenda() {
-        return EstadoVenda;
-    }
-
-    public void setEstadoVenda(String EstadoVenda) {
-        this.EstadoVenda = EstadoVenda;
+    public Venda(int quantidade, int clientId, int produtoId){
+        this.quantidade = quantidade;
+        this.ClientId = clientId;
+        this.ProdutoID = produtoId;
     }
     
+    public int getClientId() {
+        return ClientId;
+    }
+
+     public void setClientId(int produtoID) {
+        this.ProdutoID = produtoID;
+    }
+    
+    public int getProdutoId() {
+        return ProdutoID;
+    }
+     
+    public void setProdutoId(int produtoID) {
+        this.ProdutoID = produtoID;
+    }
+    
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int IdVenda) {
+        this.id = IdVenda;
+    }
+
+    public int getQuantidade() {
+        return quantidade;
+    }
+
+    public void setQuantidade(int quantidade) {
+        this.quantidade = quantidade;
+    }  
+    
+    
+    @Override
+    public String toString() {
+       return "Venda de produto{" + "Quantidade=" + this.quantidade + ", Preço=" + this.ClientId + "Quantidade="+ this.ProdutoID + '}';
+    }
 }

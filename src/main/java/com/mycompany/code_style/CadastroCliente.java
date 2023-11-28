@@ -3,11 +3,17 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package com.mycompany.code_style;
+
+import Dao.ClienteDao;
+import Model.Cliente;
 import javax.swing.BorderFactory;
 import javax.swing.border.Border;
 import javax.swing.JOptionPane;
 
 public class CadastroCliente extends javax.swing.JFrame {
+
+    private ClienteDao clienteDao = new ClienteDao();
+
 
     public void save() {
         JOptionPane.showMessageDialog(null, "working");
@@ -48,15 +54,6 @@ public class CadastroCliente extends javax.swing.JFrame {
     private boolean isValidCPF(String cpf) {
         return cpf.matches("\\d{3}\\.\\d{3}\\.\\d{3}-\\d{2}");
     }
-
-    private boolean isValidSex(String sex) {
-        return sex.equalsIgnoreCase("Masculino") || sex.equalsIgnoreCase("Feminino");
-    }
-
-    private boolean isValidPhone(String phone) {
-        return phone.matches("\\(\\d{2}\\) \\d{5}-\\d{4}");
-    }
-
     private boolean isValidEmail(String email) {
         return email.matches("^[A-Za-z0-9+_.-]+@(.+)$");
     }
@@ -242,7 +239,17 @@ public class CadastroCliente extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, "Email inválido. Por favor, insira um email válido.");
             return;
         }
-
+        
+        var cliente = new Cliente(
+                nome,
+                cpf,
+                email
+        );
+        
+        JOptionPane.showConfirmDialog(null, cliente.toString());
+        
+        clienteDao.salvar(cliente);
+        
         TelaHome home = new TelaHome();
         home.setVisible(true);
        
@@ -268,16 +275,28 @@ public class CadastroCliente extends javax.swing.JFrame {
                 if ("Nimbus".equals(info.getName())) {
                     javax.swing.UIManager.setLookAndFeel(info.getClassName());
                     break;
-                }
+
+}
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(CadastroCliente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(CadastroCliente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(CadastroCliente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(CadastroCliente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(CadastroCliente.class  
+
+.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+
+} catch (InstantiationException ex) {
+            java.util.logging.Logger.getLogger(CadastroCliente.class  
+
+.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+
+} catch (IllegalAccessException ex) {
+            java.util.logging.Logger.getLogger(CadastroCliente.class  
+
+.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+
+} catch (javax.swing.UnsupportedLookAndFeelException ex) {
+            java.util.logging.Logger.getLogger(CadastroCliente.class  
+
+.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
         //</editor-fold>

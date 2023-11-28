@@ -97,7 +97,7 @@ public class CadastroProduto extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnCadastroProdutoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadastroProdutoActionPerformed
-        
+
         String nome =  txtNomeProduto.getText();
         double preco = Double.parseDouble(inputPreco.getText());
         int quantidade = Integer.parseInt(txtQuantidadeProduto.getText());
