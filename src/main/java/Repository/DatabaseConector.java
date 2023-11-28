@@ -43,11 +43,12 @@ public class DatabaseConector {
 
             sql = "CREATE TABLE IF NOT EXISTS Venda("
                     + "id INT PRIMARY KEY AUTO_INCREMENT,"
-                    + "TotalDaVenda int,"
-                    + "QtdVendida int,"
-                    + "MtdPagamento int,"
-                    + "EstadoVenda varchar(25))";
-            
+                    + "TotalDaVenda INT,"
+                    + "ClienteID INT,"  // Foreign key reference to Cliente table
+                    + "ProdutoID INT,"  // Foreign key reference to Produto table
+                    + "FOREIGN KEY (ClienteID) REFERENCES Cliente(id),"
+                    + "FOREIGN KEY (ProdutoID) REFERENCES Produto(id))";
+
             statement = conn.prepareStatement(sql);
             statement.executeUpdate();
             statement.close();
@@ -60,7 +61,7 @@ public class DatabaseConector {
     public Connection dbConn() {
         try {
 
-            String url = "jdbc:mysql://localhost:3306/?user=root&password=";
+            String url = "jdbc:mysql://localhost:3306/?user=root&password=252525";
             Connection connection = DriverManager.getConnection(url);
 
             String dbName = "code_style";
@@ -68,7 +69,7 @@ public class DatabaseConector {
 
             connection.prepareStatement(createDbSql).executeUpdate();
 
-            url = "jdbc:mysql://localhost:3306/" + dbName + "?user=root&password=";
+            url = "jdbc:mysql://localhost:3306/" + dbName + "?user=root&password=252525";
             connection = DriverManager.getConnection(url);
             
             return connection;
