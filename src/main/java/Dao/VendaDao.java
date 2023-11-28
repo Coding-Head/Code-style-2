@@ -22,10 +22,18 @@ public class VendaDao {
     
     private Connection conn;
 
+    /**
+     *  Requisição de conexão com banco de dados
+     */
     public VendaDao() {
         this.conn = new DatabaseConector().dbConn();
     }
 
+    /**
+     * É responsável por registrar uma nova venda na base de dados, os valores
+     * que serão persistidos são obtidos da instância de VENDAS recebida por parâmetro.
+     * @param venda 
+     */
     public void inserirVenda(Venda venda) {
         try {
             String sql = "INSERT INTO Venda (quantidade, ClienteID, ProdutoID) VALUES (?, ?, ?)";
@@ -40,6 +48,11 @@ public class VendaDao {
         }
     }
 
+    /**
+     * Método responsável por consultar todas as vendas registradas
+     * na base de dados e retorná-las com sucesso.
+     * @return Coleção ordenada contendo todas as instâncias de Venda encontradas.
+     */
     public List<Venda> listarVendas() {
         List<Venda> vendas = new ArrayList<>();
 

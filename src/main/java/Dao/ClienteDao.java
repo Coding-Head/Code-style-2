@@ -22,10 +22,18 @@ public class ClienteDao implements IGenericDao<Cliente> {
 
     private Connection conn;
     
+    /**
+     *  Requisição de conexão com banco de dados
+     */
     public ClienteDao() {
         conn = new DatabaseConector().dbConn();
     }
     
+    /**
+     * Responsável por persistir as informações recebidas pela instância 
+     * de Cliente na base de dados.
+     * @param cliente 
+     */
     @Override
     public void salvar(Cliente cliente) {
         try{
@@ -42,6 +50,11 @@ public class ClienteDao implements IGenericDao<Cliente> {
         }
     }
 
+    /**
+     * Responsável por atualizar as os campos NOME e EMAIL de um determinado cliente
+     * com base no ID que é obtido da instância de Cliente recebida por parâmetro.
+     * @param cliente 
+     */
     @Override
     public void atualizar(Cliente cliente) {
         try{
@@ -58,6 +71,11 @@ public class ClienteDao implements IGenericDao<Cliente> {
        }
     }
 
+    /**
+     * Por meio do ID recebido como um valor inteiro por parâmetro, é responsável 
+     * por encontrar um CLIENTE na base de dados e excluí-lo.
+     * @param id 
+     */
     @Override
     public void excluir(int id) {
         try{
@@ -71,6 +89,12 @@ public class ClienteDao implements IGenericDao<Cliente> {
        }
     }
 
+    /**
+     * Através do ID recebido como um valor inteiro por parâmetro, 
+     * será responsável por encontrar o CLIENTE com mesmo ID e retorná-lo.
+     * @param id
+     * @return instância de Cliente com mesmo ID recebido por parâmetro.
+     */
     @Override
     public Cliente buscarPorId(int id) {
         try{
@@ -98,6 +122,11 @@ public class ClienteDao implements IGenericDao<Cliente> {
        return null;
     }
 
+    /**
+     * Será responsável por retornar uma lista contendo todos 
+     * os CLIENTES cadastrados na base de dados.
+     * @return Coleção ordenada (List) contendo todos as instâncias de Cliente.
+     */
     @Override
     public List<Cliente> buscarTodos() {
        List<Cliente> clientes = new ArrayList<>();
@@ -121,7 +150,13 @@ public class ClienteDao implements IGenericDao<Cliente> {
         }
         return clientes;
     }
-
+    
+    /**
+     * Responsável por filtrar todos os CLIENTES que possuírem
+     * o valor da variável pesquisa no campo nome.
+     * @param pesquisa
+     * @return Coleção ordenada de instâncias de CLIENTES.
+     */
     @Override
     public List<Cliente> search(String pesquisa) {
        List<Cliente> clientes = new ArrayList();

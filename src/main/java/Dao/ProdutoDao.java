@@ -14,10 +14,18 @@ public class ProdutoDao implements IGenericDao<Produto> {
     
     private Connection conn;
     
+     /**
+     *  Requisição de conexão com banco de dados
+     */
     public ProdutoDao() {
          this.conn = new DatabaseConector().dbConn();
     }
     
+    /**
+     * Responsável por persistir as informações recebidas pela instância
+     * de Produto na base de dados.
+     * @param produto 
+     */
     @Override
     public void salvar(Produto produto) {
         try{
@@ -34,6 +42,12 @@ public class ProdutoDao implements IGenericDao<Produto> {
         }
     }
      
+    /**
+     * Responsável por verificar a quantidade (estoque) de um determinado
+     * produto com base no valor inteiro ID recebido por parâmetro.
+     * @param produtoId
+     * @return Inteiro indicando quantidade em estoque.
+     */
     public int obterQuantidade(int produtoId) {
         int quantidade = 0;
         
@@ -54,6 +68,12 @@ public class ProdutoDao implements IGenericDao<Produto> {
         return quantidade;
     }
 
+    /**
+     * É responsávo por encontrar um produto através do ID e atualizá-lo
+     * com as informações recebidas através da instância de Produto recebida por 
+     * parâmetro.
+     * @param produto 
+     */
     @Override
     public void atualizar(Produto produto) {
        try{
@@ -69,7 +89,12 @@ public class ProdutoDao implements IGenericDao<Produto> {
            e.printStackTrace();
        }
     }
-
+    
+    /**
+     * Irá encontrar um produto que possua o ID correspondente ao valor inteiro
+     * recebido por parâmetro e será responsável por excluí-lo da base de dados.
+     * @param id 
+     */
     @Override
     public void excluir(int id) {
         try{
@@ -83,6 +108,12 @@ public class ProdutoDao implements IGenericDao<Produto> {
        }
     }
 
+    /**
+     * Será responsável por encontrar o produto que possua o ID correspondente
+     * ao valor inteiro recebido por parâmetro e retorná-lo com sucesso.
+     * @param id 
+     * @return instância de Produto com ID correspondente.
+     */
     @Override
     public Produto buscarPorId(int id) {
         try{
@@ -110,6 +141,11 @@ public class ProdutoDao implements IGenericDao<Produto> {
        return null;
     }
 
+    /**
+     * É reponsável por buscar todos os PRODUTOS e seus devidos campos registrados 
+     * na base de dados e retorná-los com sucesso.
+     * @return Coleção ordenada contendo todas as instâncias de Produto.
+     */
     @Override
     public List<Produto> buscarTodos() {
         List<Produto> produtos = new ArrayList<>();
@@ -134,6 +170,13 @@ public class ProdutoDao implements IGenericDao<Produto> {
         return produtos;
     }
     
+    /**
+     * Responsável por buscar na base de dados todos os produtos que possuam
+     * o campo NOME correspondentes à variável pesquisa.
+     * @param pesquis
+     * @return Coleção crdenada contendo instâncias de Produto que 
+     * atendam ao requisito.
+     */
     @Override
     public List<Produto> search(String pesquisa) {
         List<Produto> produtos = new ArrayList();

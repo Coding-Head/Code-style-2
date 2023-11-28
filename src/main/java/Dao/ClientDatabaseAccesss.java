@@ -16,6 +16,13 @@ public class ClientDatabaseAccesss {
 
     private Connection conn;
     
+    /**
+     * Este método verificará no banco de dados se a senha e usuário 
+     * recebidas através da instância de ClientDto (data) está correta 
+     * e então autentificará o usuário.
+     * @param data instância de ClientDto
+     * @return ResultSet contendo as informações.
+     */
     public ResultSet clientAuthentication(ClienteDto data) {
         conn = new DatabaseConector().dbConn();
         
