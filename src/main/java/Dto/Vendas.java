@@ -4,6 +4,7 @@
  */
 package Dto;
 
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -13,63 +14,107 @@ import java.util.List;
  */
 public class Vendas {
     
-    private List<ItemVenda> itens;
-    
-    public Vendas() {
-        this.itens = new ArrayList<>();
-    }
-    
-    public void adicionarItem(String produto, double precoUnitario, int quantidade) {
-        ItemVenda item = new ItemVenda(produto, precoUnitario, quantidade);
-        itens.add(item);
-    }
-    
-    public double calcularTotal() {
-        double total = 0.0;
-        for (ItemVenda item : itens) {
-            total += item.calcularSubtotal();
-        }
-        return total;
-    }
-    
-    public void exibirRecibo() {
-        System.out.println("==== Recibo da Venda ====");
-        for (ItemVenda item : itens) {
-            System.out.println(item);
-        }
-        System.out.println("=========================");
-        System.out.println("Total: R$" + calcularTotal());
-    }
-    
-    public static void main(String[] args) {
-        Vendas venda = new Vendas();
-        
-        venda.adicionarItem("Produto A", 10.0, 2);
-        venda.adicionarItem("Produto B", 15.0, 1);
-        venda.adicionarItem("Produto C", 8.0, 3);
-        
-        venda.exibirRecibo();
-    }
-}
+    private long id;
+    private ClienteDto cliente;
+    private LoginDto login;
+    private double totalDaVenda;
+    private double valorPago;
+    private double desconto;
+    private double troco;
+    private LocalDateTime dataHora;
+    private LocalDateTime ultimaAtualizacao;
 
-class ItemVenda {
-    private String produto;
-    private double preco;
-    private int quantidade;
-    
-    public ItemVenda(String produto, double preco, int quantidade) {
-        this.produto = produto;
-        this.preco = preco;
-        this.quantidade = quantidade;
+    public Vendas() {
+    }
+
+    public Vendas(long id, ClienteDto cliente, LoginDto login, double totalDaVenda, double valorPago, double desconto, double troco, LocalDateTime dataHora, LocalDateTime ultimaAtualizacao) {
+        this.id = id;
+        this.cliente = cliente;
+        this.login = login;
+        this.totalDaVenda = totalDaVenda;
+        this.valorPago = valorPago;
+        this.desconto = desconto;
+        this.troco = troco;
+        this.dataHora = dataHora;
+        this.ultimaAtualizacao = ultimaAtualizacao;
+    }
+
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
+    }
+
+    public ClienteDto getCliente() {
+        return cliente;
+    }
+
+    public void setCliente(ClienteDto cliente) {
+        this.cliente = cliente;
+    }
+
+    public LoginDto getLogin() {
+        return login;
+    }
+
+    public void setLogin(LoginDto login) {
+        this.login = login;
+    }
+
+    public double getTotalDaVenda() {
+        return totalDaVenda;
+    }
+
+    public void setTotalDaVenda(double totalDaVenda) {
+        this.totalDaVenda = totalDaVenda;
+    }
+
+    public double getValorPago() {
+        return valorPago;
+    }
+
+    public void setValorPago(double valorPago) {
+        this.valorPago = valorPago;
+    }
+
+    public double getDesconto() {
+        return desconto;
+    }
+
+    public void setDesconto(double desconto) {
+        this.desconto = desconto;
+    }
+
+    public double getTroco() {
+        return troco;
+    }
+
+    public void setTroco(double troco) {
+        this.troco = troco;
+    }
+
+    public LocalDateTime getDataHora() {
+        return dataHora;
+    }
+
+    public void setDataHora(LocalDateTime dataHora) {
+        this.dataHora = dataHora;
+    }
+
+    public LocalDateTime getUltimaAtualizacao() {
+        return ultimaAtualizacao;
+    }
+
+    public void setUltimaAtualizacao(LocalDateTime ultimaAtualizacao) {
+        this.ultimaAtualizacao = ultimaAtualizacao;
     }
     
-    public double calcularSubtotal() {
-        return preco * quantidade;
-    }
     
-    @Override
-    public String toString() {
-        return String.format("%s - R$%.2f x %d = R$%.2f", produto, preco, quantidade, calcularSubtotal());
-    }
+    
+    
+    
     
 }
+    
