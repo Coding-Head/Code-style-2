@@ -34,7 +34,6 @@ public class VendaDao {
             statement.setInt(6, venda.getProdutoId());
 
             statement.executeUpdate();
-            statement.close();
         } catch (SQLException e) {
             JOptionPane.showMessageDialog(null, "Error inserting sale data: " + e.getMessage());
         }

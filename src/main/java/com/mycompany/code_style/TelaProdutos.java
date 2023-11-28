@@ -18,6 +18,7 @@ public class TelaProdutos extends javax.swing.JFrame {
     public TelaProdutos() {
         initComponents();
         CadastroColors();
+        consultarProduto();
     }
 
     private void CadastroColors() {
@@ -160,7 +161,7 @@ public class TelaProdutos extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void Pesquisar(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Pesquisar
-        consultarComputador();
+        consultarProduto();
     }//GEN-LAST:event_Pesquisar
 
     private void Adicionar(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Adicionar
@@ -194,7 +195,7 @@ public class TelaProdutos extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_inputPesquisarActionPerformed
 
-    private void consultarComputador() {
+    private void consultarProduto() {
         ProdutoDao produtoDao = new ProdutoDao();
         List<Produto> produtos = produtoDao.buscarTodos();
 
@@ -223,11 +224,6 @@ public class TelaProdutos extends javax.swing.JFrame {
                 produto.getId(), produto.getNome(), produto.getPreco(), produto.getQuantidade()
             });
         }
-    }
-
-    private void ativarCampo(boolean active) {
-        Adicionar.setEnabled(active);
-        Update.setEnabled(active);
     }
 
     public static void main(String args[]) {
