@@ -10,11 +10,27 @@ import javax.swing.JOptionPane;
 
 public class TelaProdutos extends javax.swing.JFrame {
 
+    private javax.swing.JTextField txtId;
+    private javax.swing.JTextField txtNome;
+    private javax.swing.JTextField txtPreco;
+    private javax.swing.JTextField txtQuantidade;
+
+    // Outros membros da classe
+
+    public void setDadosProduto(int id, String nome, double preco, int quantidade) {
+        // Configure seus campos de edição com os dados do produto
+        txtId.setText(String.valueOf(id));
+        txtNome.setText(nome);
+        txtPreco.setText(String.valueOf(preco));
+        txtQuantidade.setText(String.valueOf(quantidade));
+    }
+
+
     /**
      * Creates new form Tela_Produtos
      */
     private ProdutoDao produtoDao = new ProdutoDao();
-    
+
     public TelaProdutos() {
         initComponents();
         CadastroColors();
@@ -170,18 +186,41 @@ public class TelaProdutos extends javax.swing.JFrame {
     }//GEN-LAST:event_Adicionar
 
     private void Update(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Update
+        int linhaSelecionada = ProdutosLista.getSelectedRow();
+
+    if (linhaSelecionada != -1) {
+        int id = Integer.parseInt(ProdutosLista.getValueAt(linhaSelecionada, 0).toString());
+        String nome = ProdutosLista.getValueAt(linhaSelecionada, 1).toString();
+        double preco = Double.parseDouble(ProdutosLista.getValueAt(linhaSelecionada, 2).toString());
+        int quantidade = Integer.parseInt(ProdutosLista.getValueAt(linhaSelecionada, 3).toString());
+
         EditarProduto editarProduto = new EditarProduto();
+        editarProduto.setDadosProduto(id, nome, preco, quantidade);
         editarProduto.setVisible(true);
+        
         Adicionar.setEnabled(false);
         Excluir.setEnabled(false);
+    } else {
+        JOptionPane.showMessageDialog(null, "Selecione um produto para editar!");
+    }
     }//GEN-LAST:event_Update
 
     private void Excluir(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Excluir
         int linhaSelecionada = ProdutosLista.getSelectedRow();
+
+        if (linhaSelecionada == -1) {
+            JOptionPane.showMessageDialog(rootPane, "Selecione um produto para excluir.", "Erro", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+
         DefaultTableModel modelo = (DefaultTableModel) ProdutosLista.getModel();
         int idExcluir = Integer.parseInt(modelo.getValueAt(linhaSelecionada, 0).toString());
+
+        // Como o método excluir é void, assumimos que a exclusão é bem-sucedida
         produtoDao.excluir(idExcluir);
-        JOptionPane.showMessageDialog(rootPane, "Sucesso");
+
+        JOptionPane.showMessageDialog(rootPane, "Produto excluído com sucesso.");
+        consultarComputador(); // Atualize a tabela após excluir
     }//GEN-LAST:event_Excluir
 
     private void ButtonPesquisarSearch(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonPesquisarSearch
