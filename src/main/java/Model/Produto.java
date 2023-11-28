@@ -1,5 +1,7 @@
 package Model;
 
+import java.util.List;
+
 public class Produto {
     
     private long id;
@@ -16,6 +18,8 @@ public class Produto {
         this.preco = preco;
         this.quantidade = quantidade;
     }
+    
+    
 
     /**
      * @return the name

@@ -4,7 +4,11 @@
  */
 package com.mycompany.code_style;
 
+import Dao.ProdutoDao;
+import Model.Produto;
+import java.util.List;
 import javax.swing.BorderFactory;
+import javax.swing.JOptionPane;
 import javax.swing.border.Border;
 
 /**
@@ -79,20 +83,33 @@ public class EncontreProduto extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnEncontreProdutoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEncontreProdutoActionPerformed
-        // TODO add your handling code here:
+        
+ 
     }//GEN-LAST:event_btnEncontreProdutoActionPerformed
 
+    private void MostrarProdutosEncontrados(List<Produto> produtos) {
+    // Implemente a lógica para exibir os produtos encontrados
+    // Pode ser uma nova janela, um JOptionPane, etc.
+    // Exemplo hipotético:
+    StringBuilder mensagem = new StringBuilder("Produtos encontrados:\n");
+    for (Produto produto : produtos) {
+        mensagem.append(produto.getNome()).append(" - ").append(produto.getPreco()).append("\n");
+    }
+    JOptionPane.showMessageDialog(this, mensagem.toString(), "Produtos Encontrados", JOptionPane.INFORMATION_MESSAGE);
+}
+    
     void colors() {
-         // Defina a cor de fundo do JFrame
+        // Defina a cor de fundo do JFrame
         this.getContentPane().setBackground(new java.awt.Color(173, 216, 230)); // azul
         // Defina a cor de fundo de alguns componentes
         txtNomeProduto.setBackground(new java.awt.Color(255, 255, 255)); // branco    
         //Crie uma borda com uma cor preta
         Border border = BorderFactory.createLineBorder(new java.awt.Color(70, 70, 70));
-        
+
         txtNomeProduto.setBorder(border);
         btnEncontreProduto.setBorder(border);
     }
+
     /**
      * @param args the command line arguments
      */
