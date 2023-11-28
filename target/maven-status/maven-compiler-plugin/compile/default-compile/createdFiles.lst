@@ -22,10 +22,7 @@ Interface\IGenericDao.class
 com\mycompany\code_style\Relatorio_analitico$1.class
 com\mycompany\code_style\Relatorio_sintetico.class
 com\mycompany\code_style\TelaVendas$1.class
-<<<<<<< HEAD
-=======
 com\mycompany\code_style\TelaProdutos$7.class
->>>>>>> feature/crud-cliente
 Dao\ClienteDao.class
 com\mycompany\code_style\TelaCliente$6.class
 com\mycompany\code_style\TelaHome$4.class
