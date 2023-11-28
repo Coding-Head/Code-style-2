@@ -43,7 +43,7 @@ public class DatabaseConector {
 
             sql = "CREATE TABLE IF NOT EXISTS Venda("
                     + "id INT PRIMARY KEY AUTO_INCREMENT,"
-                    + "TotalDaVenda INT,"
+                    + "quantidade INT,"
                     + "ClienteID INT,"  // Foreign key reference to Cliente table
                     + "ProdutoID INT,"  // Foreign key reference to Produto table
                     + "FOREIGN KEY (ClienteID) REFERENCES Cliente(id),"

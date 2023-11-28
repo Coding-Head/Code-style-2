@@ -15,7 +15,7 @@ public class CadastroCliente extends javax.swing.JFrame {
     private ClienteDao clienteDao = new ClienteDao();
 
 
-public void save() {
+    public void save() {
         JOptionPane.showMessageDialog(null, "working");
     }
 
@@ -54,15 +54,6 @@ public void save() {
     private boolean isValidCPF(String cpf) {
         return cpf.matches("\\d{3}\\.\\d{3}\\.\\d{3}-\\d{2}");
     }
-
-    private boolean isValidSex(String sex) {
-        return sex.equalsIgnoreCase("Masculino") || sex.equalsIgnoreCase("Feminino");
-    }
-
-    private boolean isValidPhone(String phone) {
-        return phone.matches("\\(\\d{2}\\) \\d{5}-\\d{4}");
-    }
-
     private boolean isValidEmail(String email) {
         return email.matches("^[A-Za-z0-9+_.-]+@(.+)$");
     }
@@ -257,7 +248,7 @@ public void save() {
         
         JOptionPane.showConfirmDialog(null, cliente.toString());
         
-         clienteDao.salvar(cliente);
+        clienteDao.salvar(cliente);
         
         TelaHome home = new TelaHome();
         home.setVisible(true);

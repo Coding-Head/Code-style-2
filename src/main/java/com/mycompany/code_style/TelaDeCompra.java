@@ -5,9 +5,12 @@
 package com.mycompany.code_style;
 
 import Dao.ProdutoDao;
+import Dao.VendaDao;
 import Model.Produto;
+import Model.Venda;
 import java.util.List;
 import javax.swing.BorderFactory;
+import javax.swing.JOptionPane;
 import javax.swing.border.Border;
 import javax.swing.table.DefaultTableModel;
 /**
@@ -16,6 +19,7 @@ import javax.swing.table.DefaultTableModel;
  */
 public class TelaDeCompra extends javax.swing.JFrame {
 
+    private VendaDao vendaDao = new VendaDao();
     private ProdutoDao produtoDao = new ProdutoDao();
     
     /**
@@ -65,10 +69,10 @@ public class TelaDeCompra extends javax.swing.JFrame {
         btnConfirmar = new javax.swing.JButton();
         ButtonPesquisar = new javax.swing.JButton();
         codProdutoInput = new javax.swing.JTextField();
-        cpfInput = new javax.swing.JTextField();
+        codClienteInput = new javax.swing.JTextField();
         CodProdutoLabel = new javax.swing.JLabel();
         QuantidadeLabel = new javax.swing.JLabel();
-        cpfLabel = new javax.swing.JLabel();
+        codClienteLabel = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Compra");
@@ -94,17 +98,22 @@ public class TelaDeCompra extends javax.swing.JFrame {
         btnConfirmar.setText("Confirmar");
         btnConfirmar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnConfirmarActionPerformed(evt);
+                btnConfirmar(evt);
             }
         });
 
         ButtonPesquisar.setText("🔎");
+        ButtonPesquisar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ButtonPesquisarActionPerformed(evt);
+            }
+        });
 
         CodProdutoLabel.setText("Cod. Produto");
 
         QuantidadeLabel.setText("Quantidade");
 
-        cpfLabel.setText("CPF");
+        codClienteLabel.setText("Cod.Cliente");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -126,8 +135,8 @@ public class TelaDeCompra extends javax.swing.JFrame {
                                 .addGap(0, 70, Short.MAX_VALUE)))
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(cpfInput, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(cpfLabel))
+                            .addComponent(codClienteInput, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(codClienteLabel))
                         .addGap(27, 27, 27)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(QuantidadeLabel)
@@ -148,12 +157,12 @@ public class TelaDeCompra extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(CodProdutoLabel)
                     .addComponent(QuantidadeLabel)
-                    .addComponent(cpfLabel))
+                    .addComponent(codClienteLabel))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(qntInput, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(codProdutoInput, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(cpfInput, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(codClienteInput, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 231, Short.MAX_VALUE)
                 .addGap(18, 18, 18)
@@ -164,9 +173,14 @@ public class TelaDeCompra extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnConfirmarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConfirmarActionPerformed
+    private void btnConfirmar(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConfirmar
         adicioanrProduto();
-    }//GEN-LAST:event_btnConfirmarActionPerformed
+    }//GEN-LAST:event_btnConfirmar
+
+    private void ButtonPesquisarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonPesquisarActionPerformed
+        String nome = fielPesquisar.getText();
+        Search(nome);
+    }//GEN-LAST:event_ButtonPesquisarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -204,9 +218,41 @@ public class TelaDeCompra extends javax.swing.JFrame {
     }
     
     private void adicioanrProduto(){
-        String nome =  codProdutoInput.getText();
-        double preco = Double.parseDouble(cpfInput.getText());
-//        int quantidade = Integer.parseInt(qntInput.getBounds());;
+       
+        int quantidade = (Integer) qntInput.getValue();
+        int codClienteId = Integer.parseInt(codClienteInput.getText());
+        int codProdId =  Integer.parseInt(codProdutoInput.getText());
+        
+        
+        int quantidadeDisponivel = produtoDao.obterQuantidade(codProdId);
+        if (quantidade > quantidadeDisponivel){ 
+            JOptionPane.showMessageDialog(null, "quantidade cadastrado é invalido");
+            return;
+        }  
+        
+        if (isVendaValid(codClienteId)) {
+            JOptionPane.showMessageDialog(null, "codClienteId cadastrado é invalido");
+            return;
+        }
+        
+        if (isVendaValid(codProdId)) {
+            JOptionPane.showMessageDialog(null, "codProdId cadastrada é invalida");
+            return;
+        }
+        
+        Venda venda = new Venda(
+                quantidade,
+                codClienteId,
+                codProdId
+        );
+        
+        JOptionPane.showConfirmDialog(null, venda.toString());
+        
+        vendaDao.inserirVenda(venda);
+    }
+   
+    boolean isVendaValid(int value) {
+        return value < 0;
     }
     
     private void consultarProduto() {
@@ -223,15 +269,30 @@ public class TelaDeCompra extends javax.swing.JFrame {
             });
         }
     }
+    
+    private void Search(String pesquisa) {
+        ProdutoDao produtoDao = new ProdutoDao();
+        List<Produto> produtos = produtoDao.search(pesquisa);
+
+        // Limpar dados da tabela
+        DefaultTableModel model = (DefaultTableModel) tblDeCompra.getModel();
+        model.setRowCount(0);
+
+        for (Produto produto : produtos) {
+            model.addRow(new Object[]{
+                produto.getId(), produto.getNome(), produto.getPreco(), produto.getQuantidade()
+            });
+        }
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton ButtonPesquisar;
     private javax.swing.JLabel CodProdutoLabel;
     private javax.swing.JLabel QuantidadeLabel;
     private javax.swing.JButton btnConfirmar;
+    private javax.swing.JTextField codClienteInput;
+    private javax.swing.JLabel codClienteLabel;
     private javax.swing.JTextField codProdutoInput;
-    private javax.swing.JTextField cpfInput;
-    private javax.swing.JLabel cpfLabel;
     private javax.swing.JTextField fielPesquisar;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JSpinner qntInput;

@@ -10,6 +10,7 @@ import java.sql.SQLException;
 import java.util.List;
 import javax.swing.JOptionPane;
 import Model.Venda;
+import Repository.DatabaseConector;
 import java.sql.ResultSet;
 import java.util.ArrayList;
 
@@ -21,17 +22,17 @@ public class VendaDao {
     
     private Connection conn;
 
-    public VendaDao(Connection conn) {
-        this.conn = conn;
+    public VendaDao() {
+        this.conn = new DatabaseConector().dbConn();
     }
 
     public void inserirVenda(Venda venda) {
         try {
-            String sql = "INSERT INTO Venda (TotalDaVenda, ClienteID, ProdutoID) VALUES (?, ?, ?, ?, ?, ?)";
+            String sql = "INSERT INTO Venda (quantidade, ClienteID, ProdutoID) VALUES (?, ?, ?)";
             PreparedStatement statement = conn.prepareStatement(sql);
-            statement.setDouble(1, venda.getTotalDaVenda());
-            statement.setInt(5, venda.getClientId());
-            statement.setInt(6, venda.getProdutoId());
+            statement.setInt(1, venda.getQuantidade());
+            statement.setInt(2, venda.getClientId());
+            statement.setInt(3, venda.getProdutoId());
 
             statement.executeUpdate();
         } catch (SQLException e) {
@@ -50,7 +51,7 @@ public class VendaDao {
             while (resultSet.next()) {
                 Venda venda = new Venda();
                 venda.setId(resultSet.getInt("id"));
-                venda.setTotalDaVenda(resultSet.getInt("TotalDaVenda"));
+                venda.setQuantidade(resultSet.getInt("quantidade"));
                 venda.setClientId(resultSet.getInt("ClienteID"));
                 venda.setProdutoId(resultSet.getInt("ProdutoID"));
 

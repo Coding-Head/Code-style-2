@@ -33,6 +33,26 @@ public class ProdutoDao implements IGenericDao<Produto> {
             e.printStackTrace();
         }
     }
+     
+    public int obterQuantidade(int produtoId) {
+        int quantidade = 0;
+        
+        try{
+            String sql = "SELECT quantidade FROM produto WHERE id = " + produtoId;
+
+            PreparedStatement preparedStatement = conn.prepareStatement(sql);
+            ResultSet result = preparedStatement.executeQuery(sql);
+
+            // Verifica se há resultados e obtém a quantidade
+            if (result.next()) {
+                quantidade = result.getInt("quantidade");
+            }
+        }catch(SQLException e) {
+            e.printStackTrace();
+        }
+        
+        return quantidade;
+    }
 
     @Override
     public void atualizar(Produto produto) {

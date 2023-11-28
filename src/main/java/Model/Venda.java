@@ -7,14 +7,14 @@ package Model;
 public class Venda {
     
     private int id;
-    private double TotalDaVenda;
+    private int quantidade;
     private int ClientId;
     private int ProdutoID;
     
     public Venda(){
 }
-    public Venda(double TotalDaVenda, int clientId, int produtoId){
-        this.TotalDaVenda = TotalDaVenda;
+    public Venda(int quantidade, int clientId, int produtoId){
+        this.quantidade = quantidade;
         this.ClientId = clientId;
         this.ProdutoID = produtoId;
     }
@@ -43,11 +43,17 @@ public class Venda {
         this.id = IdVenda;
     }
 
-    public double getTotalDaVenda() {
-        return TotalDaVenda;
+    public int getQuantidade() {
+        return quantidade;
     }
 
-    public void setTotalDaVenda(double TotalDaVenda) {
-        this.TotalDaVenda = TotalDaVenda;
+    public void setQuantidade(int quantidade) {
+        this.quantidade = quantidade;
     }  
+    
+    
+    @Override
+    public String toString() {
+       return "Venda de produto{" + "Quantidade=" + this.quantidade + ", Preço=" + this.ClientId + "Quantidade="+ this.ProdutoID + '}';
+    }
 }
