@@ -216,4 +216,12 @@ public class EditarProduto extends javax.swing.JFrame {
     private javax.swing.JLabel preço;
     private javax.swing.JLabel quantidadeLabel;
     // End of variables declaration//GEN-END:variables
+
+    void setDadosProduto(int idProduto, String nomeProduto, double precoProduto, int quantidadeProduto) {
+    InputId.setText(String.valueOf(idProduto));
+    inputNome.setText(nomeProduto);
+    precoInput.setText(String.valueOf(precoProduto));
+    InputQuantidade.setText(String.valueOf(quantidadeProduto));
+}
+
 }
